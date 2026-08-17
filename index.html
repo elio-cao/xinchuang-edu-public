@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>包头市信创教育科技 · 公司全档</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* 「暖白 + 烫金橙 + 深石板蓝 + 玻璃态」 */
+  --bg:#faf8f5;
+  --bg-2:#f3efe8;
+  --card:#ffffff;
+  --card-2:#faf8f5;
+  --ink:#0f172a;
+  --ink-2:#334155;
+  --ink-3:#64748b;
+  --line:#e8e3d8;
+  --line-2:#d6d0c2;
+  --primary:#ff6b1a;        /* 烫金橙 - 主色（10% 强调）*/
+  --primary-2:#ea580c;
+  --primary-3:#c2410c;
+  --primary-soft:#fff1e6;
+  --primary-glow:rgba(255,107,26,.18);
+  --slate:#1e293b;          /* 深石板蓝 - 主文字（高端）*/
+  --slate-2:#334155;
+  --slate-3:#475569;
+  --slate-soft:#f1f5f9;
+  --teal:#0d9488;           /* 墨绿 - 章节高亮 */
+  --teal-2:#0f766e;
+  --teal-soft:#f0fdfa;
+  --rose:#e11d48;           /* 玫瑰红 - 警示 */
+  --rose-soft:#fff1f2;
+  --amber:#d97706;          /* 古金 - 辅色 */
+  --amber-soft:#fffbeb;
+  --emerald:#059669;        /* 翡翠绿 - 成功 */
+  --emerald-soft:#ecfdf5;
+  --shadow-xs:0 1px 2px rgba(15,23,42,.04);
+  --shadow-sm:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04);
+  --shadow:0 2px 4px rgba(15,23,42,.05),0 4px 12px rgba(15,23,42,.06);
+  --shadow-md:0 4px 8px rgba(15,23,42,.06),0 12px 24px rgba(15,23,42,.08);
+  --shadow-glow:0 0 0 1px rgba(255,107,26,.10),0 4px 16px rgba(255,107,26,.10);
+  --r-sm:10px;--r-md:14px;--r-lg:18px;--r-xl:22px;--r-2xl:28px;
+  --display:'Bricolage Grotesque','Noto Serif SC','PingFang SC',serif;
+  --sans:'Manrope','Noto Sans SC','PingFang SC',-apple-system,sans-serif;
+  --serif:'Lora','Noto Serif SC','Songti SC',serif;
+  --mono:'JetBrains Mono','SF Mono',Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--slate);
+  line-height:1.6;font-size:15px;
+  padding-bottom:80px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  font-feature-settings:"ss01","cv11";
+}
+/* 噪点纹理（暖纸质感）*/
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity:.04;
+  pointer-events:none;z-index:0;
+}
+/* 入场动画 */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes shimmer{
+  0%{background-position:-200% 0}
+  100%{background-position:200% 0}
+}
+.fade-up{animation:fadeUp .7s cubic-bezier(.16,1,.3,1) backwards}
+.fade-up:nth-child(1){animation-delay:0.05s}
+.fade-up:nth-child(2){animation-delay:0.1s}
+.fade-up:nth-child(3){animation-delay:0.15s}
+.fade-up:nth-child(4){animation-delay:0.2s}
+.fade-up:nth-child(5){animation-delay:0.25s}
+.fade-up:nth-child(6){animation-delay:0.3s}
+
+/* ===== 顶部固定栏（玻璃态） ===== */
+.top-fixed{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,248,245,.75);
+  backdrop-filter:saturate(180%) blur(24px);
+  -webkit-backdrop-filter:saturate(180%) blur(24px);
+  border-bottom:1px solid var(--line);
+}
+.header{
+  background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+.header::before{
+  content:'';position:absolute;top:-100px;right:-50px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,26,.14) 0%,transparent 70%);
+  pointer-events:none;
+}
+.header::after{
+  content:'';position:absolute;bottom:-80px;left:-50px;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(13,148,136,.10) 0%,transparent 70%);
+  pointer-events:none;
+}
+.header-content{
+  padding:24px 20px 20px;
+  position:relative;
+  z-index:1;
+  animation:fadeUp .8s cubic-bezier(.16,1,.3,1);
+}
+.header-meta{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-bottom:14px;
+  padding:4px 10px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:100px;
+  font-size:10px;
+  font-family:var(--mono);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--slate-2);
+  font-weight:600;
+  box-shadow:var(--shadow-xs);
+}
+.header-meta-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--primary);
+  box-shadow:0 0 0 3px var(--primary-glow);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(.85)}
+}
+.header h1{
+  font-family:var(--display);
+  font-size:30px;
+  font-weight:700;
+  letter-spacing:-1.2px;
+  margin-bottom:6px;
+  line-height:1.15;
+  color:var(--slate);
+}
+.header h1 .co-suffix{
+  display:block;
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:var(--slate-3);
+  letter-spacing:0.8px;
+  margin-top:6px;
+}
+.header-tagline{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:14px;
+  padding:6px 12px;
+  background:var(--primary-soft);
+  color:var(--primary-3);
+  font-size:11px;
+  font-weight:700;
+  border-radius:100px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-family:var(--mono);
+  border:1px solid rgba(255,107,26,.15);
+}
+.header-tagline::before{
+  content:'◆';font-size:8px;color:var(--primary);
+}
+.header-sub{
+  font-size:13px;
+  color:var(--slate-3);
+  margin-top:14px;
+  line-height:1.6;
+  font-weight:500;
+}
+.header-sub b{color:var(--slate);font-weight:700}
+
+/* ===== 快速导航（玻璃胶囊） ===== */
+.quick-nav{
+  display:flex;overflow-x:auto;padding:12px 16px;gap:8px;
+  scrollbar-width:none;
+  background:transparent;
+  position:relative;
+  z-index:2;
+}
+.quick-nav::-webkit-scrollbar{display:none}
+.quick-nav a{
+  flex-shrink:0;padding:7px 14px;
+  background:rgba(255,255,255,.6);
+  backdrop-filter:blur(8px);
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:var(--slate-2);font-size:11.5px;
+  font-weight:600;transition:all 0.2s;
+  white-space:nowrap;
+  border-radius:100px;
+  box-shadow:var(--shadow-xs);
+  font-family:var(--sans);
+  letter-spacing:0.2px;
+}
+.quick-nav a:hover{color:var(--slate);border-color:var(--slate-3);transform:translateY(-1px)}
+.quick-nav a:active{background:var(--primary);color:#fff;border-color:transparent;box-shadow:var(--shadow-glow)}
+
+/* ===== 容器 ===== */
+.container{max-width:720px;margin:0 auto;padding:20px 16px;position:relative;z-index:1}
+
+/* ===== Section（章节大标） ===== */
+.section{
+  margin-bottom:32px;background:transparent;
+  border:none;
+  position:relative;
+}
+.section-title{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  padding:0 0 14px 0;
+  position:relative;
+  margin-bottom:18px;
+}
+.section-title::after{
+  content:'';position:absolute;bottom:0;left:0;width:48px;height:2px;
+  background:var(--primary);
+  border-radius:2px;
+}
+.section-title .icon{
+  display:none;
+}
+.section-title h2{
+  font-family:var(--display);
+  font-size:24px;
+  font-weight:700;
+  color:var(--slate);
+  letter-spacing:-0.8px;
+  line-height:1.2;
+  margin-bottom:4px;
+}
+.section-title .sub{
+  display:block;
+  font-size:10px;
+  color:var(--primary);
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-family:var(--mono);
+  margin-bottom:6px;
+}
+.section-body{padding:0;color:var(--slate)}
+
+/* ===== 宣言卡片（白底烫金橙光晕） ===== */
+.declaration{
+  text-align:left;padding:28px 22px 24px;
+  background:var(--card);
+  color:var(--slate);
+  margin-bottom:18px;
+  position:relative;
+  border-radius:var(--r-xl);
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.declaration::before{
+  content:'';position:absolute;top:-80px;right:-50px;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,26,.18) 0%,transparent 65%);
+  pointer-events:none;
+}
+.declaration::after{
+  content:'';position:absolute;bottom:-60px;left:-40px;
+  width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(13,148,136,.10) 0%,transparent 70%);
+  pointer-events:none;
+}
+.declaration-text{
+  font-family:var(--serif);
+  font-size:18px;font-weight:500;
+  color:var(--slate);
+  line-height:1.7;position:relative;z-index:1;
+  letter-spacing:-0.1px;
+  font-style:italic;
+}
+.declaration-text b{
+  color:var(--primary-3);
+  font-weight:700;
+  font-style:normal;
+  font-family:var(--sans);
+  background:var(--primary-soft);
+  padding:0 6px;
+  border-radius:4px;
+  border:1px solid rgba(255,107,26,.2);
+}
+.declaration-foot{
+  font-family:var(--mono);
+  font-size:9.5px;color:var(--slate-3);margin-top:16px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  font-weight:700;
+  position:relative;z-index:1;
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ===== 核心理念双卡 ===== */
+.core-idea{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-xl);
+  padding:18px 18px 16px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-xs);
+}
+.idea-title{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:700;
+  color:var(--primary-3);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:1px dashed var(--line);
+}
+.idea-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.idea-card{
+  position:relative;
+  padding:14px 12px 12px;
+  border-radius:var(--r-md);
+  background:linear-gradient(135deg,var(--primary-soft) 0%,var(--card) 80%);
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.idea-card.idea-2{
+  background:linear-gradient(135deg,#d4f4f0 0%,var(--card) 80%);
+}
+.idea-num{
+  font-family:var(--display);
+  font-size:22px;
+  font-weight:800;
+  color:var(--primary);
+  line-height:1;
+  margin-bottom:6px;
+  letter-spacing:-0.5px;
+}
+.idea-card.idea-2 .idea-num{
+  color:var(--teal);
+}
+.idea-name{
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  color:var(--slate);
+  margin-bottom:6px;
+  letter-spacing:-0.2px;
+}
+.idea-desc{
+  font-size:11px;
+  color:var(--ink-2);
+  line-height:1.5;
+  font-weight:500;
+}
+.declaration-foot::before{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,var(--primary) 0%,transparent 100%);
+}
+
+/* ===== 速查区（高端卡片） ===== */
+.summary-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:16px;
+}
+.summary-item{
+  padding:18px 16px;
+  background:var(--card);
+  color:var(--slate);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  position:relative;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:104px;
+  transition:all 0.25s cubic-bezier(.16,1,.3,1);
+  box-shadow:var(--shadow-xs);
+  overflow:hidden;
+  animation:fadeUp .7s cubic-bezier(.16,1,.3,1) backwards;
+}
+.summary-item:nth-child(1){animation-delay:0.1s}
+.summary-item:nth-child(2){animation-delay:0.15s}
+.summary-item:nth-child(3){animation-delay:0.2s}
+.summary-item:nth-child(4){animation-delay:0.25s}
+.summary-item:nth-child(5){animation-delay:0.3s}
+.summary-item:nth-child(6){animation-delay:0.35s}
+.summary-item:active{transform:scale(0.98);box-shadow:var(--shadow)}
+.summary-item.brand{
+  grid-column:span 2;
+  background:linear-gradient(135deg,var(--primary) 0%,var(--primary-3) 100%);
+  color:#fff;
+  min-height:88px;
+  flex-direction:row;justify-content:space-between;align-items:center;gap:12px;
+  border:none;
+  box-shadow:var(--shadow-glow);
+  position:relative;
+  overflow:hidden;
+}
+.summary-item.brand::before{
+  content:'';position:absolute;top:-30px;right:-30px;
+  width:140px;height:140px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.summary-item.brand::after{
+  content:'';position:absolute;bottom:-40px;left:-20px;
+  width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);
+  pointer-events:none;
+}
+.summary-item.brand .label{
+  color:rgba(255,255,255,.9);
+  font-size:10px;margin:0;
+  font-weight:600;letter-spacing:1.5px;
+  flex-shrink:0;
+  text-transform:uppercase;
+  font-family:var(--mono);
+  position:relative;z-index:1;
+}
+.summary-item.brand .value{
+  color:#fff;
+  font-size:14px;margin:0;
+  font-weight:700;
+  letter-spacing:0.2px;
+  text-align:right;
+  position:relative;z-index:1;
+  flex:1;
+}
+.summary-item .label{
+  font-size:10px;
+  color:var(--slate-3);
+  margin-bottom:10px;
+  font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-family:var(--mono);
+}
+.summary-item .value{
+  font-family:var(--display);
+  font-size:28px;font-weight:700;
+  color:var(--slate);
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-1.2px;
+}
+.summary-item .value small{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--slate-3);
+  font-weight:600;
+  margin-left:3px;
+  letter-spacing:0;
+}
+
+/* ===== 业务中心 5 卡片（高端） ===== */
+.biz-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.biz-card{
+  padding:18px 16px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  position:relative;
+  transition:all 0.25s cubic-bezier(.16,1,.3,1);
+  min-height:140px;
+  box-shadow:var(--shadow-xs);
+  overflow:hidden;
+}
+.biz-card:active{transform:scale(0.98) translateY(2px);box-shadow:var(--shadow)}
+.biz-card.span-2{grid-column:span 2}
+.biz-card::before{
+  content:'';position:absolute;top:0;right:0;
+  width:80px;height:80px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,26,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.biz-card .num{
+  font-family:var(--display);
+  font-size:30px;font-weight:700;
+  color:var(--primary);
+  margin-bottom:6px;
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-1.5px;
+}
+.biz-card .name{
+  font-size:14.5px;font-weight:700;margin-bottom:6px;
+  color:var(--slate);
+  letter-spacing:-0.1px;
+}
+.biz-card .scope{
+  font-size:11.5px;color:var(--slate-2);line-height:1.55;
+  margin-bottom:10px;
+}
+.biz-card .team{
+  font-size:9.5px;color:var(--slate-3);font-weight:600;
+  padding-top:10px;border-top:1px solid var(--line);
+  font-family:var(--mono);
+  letter-spacing:0.8px;
+  text-transform:uppercase;
+}
+
+/* ===== 7 人 tab（高端胶囊） ===== */
+.person-tabs{
+  display:flex;overflow-x:auto;
+  background:transparent;
+  scrollbar-width:none;
+  padding:0;
+  gap:6px;
+  margin-bottom:16px;
+}
+.person-tabs::-webkit-scrollbar{display:none}
+.person-tab{
+  flex-shrink:0;padding:9px 14px;background:var(--card);
+  border:1px solid var(--line);font-size:12px;font-weight:600;
+  color:var(--slate-2);cursor:pointer;white-space:nowrap;
+  transition:all 0.2s;
+  font-family:var(--sans);
+  border-radius:100px;
+  box-shadow:var(--shadow-xs);
+}
+.person-tab.active{
+  color:#fff;
+  background:linear-gradient(135deg,var(--primary) 0%,var(--primary-3) 100%);
+  border-color:transparent;
+  font-weight:700;
+  box-shadow:var(--shadow-glow);
+}
+.person-content{display:none;padding:14px 0;color:var(--slate);animation:fadeUp .5s ease}
+.person-content.active{display:block}
+
+.role-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+}
+.role-grid > div{
+  padding:12px 14px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  transition:all 0.2s;
+}
+.role-grid > div:hover{transform:translateY(-1px);box-shadow:var(--shadow-xs)}
+.role-grid .lbl{
+  font-size:10px;color:var(--slate-3);
+  letter-spacing:1px;margin-bottom:4px;
+  font-weight:600;
+  text-transform:uppercase;
+  font-family:var(--mono);
+}
+.role-grid .val{
+  font-size:13.5px;font-weight:700;
+  color:var(--slate);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ===== 5 年时间线（烫金橙渐变） ===== */
+.timeline{
+  position:relative;padding-left:26px;
+}
+.timeline::before{
+  content:'';position:absolute;left:5px;top:8px;bottom:8px;
+  width:2px;
+  background:linear-gradient(180deg,var(--primary) 0%,var(--teal) 50%,var(--amber) 100%);
+  border-radius:2px;
+}
+.timeline-item{
+  position:relative;padding-bottom:20px;
+}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item::before{
+  content:'';position:absolute;left:-24px;top:6px;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--card);
+  border:2.5px solid var(--primary);
+  box-shadow:0 0 0 4px var(--primary-soft);
+}
+.timeline-item.s2::before{border-color:var(--teal);box-shadow:0 0 0 4px var(--teal-soft)}
+.timeline-item.s3::before{border-color:var(--amber);box-shadow:0 0 0 4px var(--amber-soft)}
+.timeline-item.s4::before{border-color:#dc2626;box-shadow:0 0 0 4px var(--rose-soft)}
+.timeline-item.s5::before{border-color:var(--emerald);box-shadow:0 0 0 4px var(--emerald-soft)}
+.timeline-item .stage{
+  display:inline-block;
+  font-size:10px;font-weight:700;
+  color:var(--primary-3);
+  margin-bottom:6px;letter-spacing:1.2px;
+  padding:3px 9px;
+  background:var(--primary-soft);
+  border-radius:100px;
+  text-transform:uppercase;
+  font-family:var(--mono);
+}
+.timeline-item.s2 .stage{color:var(--teal-2);background:var(--teal-soft)}
+.timeline-item.s3 .stage{color:var(--amber);background:var(--amber-soft)}
+.timeline-item.s4 .stage{color:#dc2626;background:var(--rose-soft)}
+.timeline-item.s5 .stage{color:var(--emerald);background:var(--emerald-soft)}
+.timeline-item .title{
+  font-family:var(--display);
+  font-size:16px;font-weight:700;
+  margin-bottom:8px;
+  color:var(--slate);
+  letter-spacing:-0.4px;
+  line-height:1.3;
+}
+.timeline-item .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.timeline-item .tag{
+  font-size:10.5px;padding:3px 9px;
+  background:var(--card);
+  color:var(--slate-2);
+  font-weight:600;font-variant-numeric:tabular-nums;
+  font-family:var(--mono);
+  border:1px solid var(--line);
+  border-radius:6px;
+  letter-spacing:0.2px;
+}
+
+/* ===== 股权条形图（高端） ===== */
+.equity-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  padding:20px 18px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-xs);
+}
+.equity-title{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.equity-title .label{
+  font-size:10px;
+  color:var(--slate-3);
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-family:var(--mono);
+}
+.equity-title .value{
+  font-family:var(--display);
+  font-size:26px;font-weight:700;
+  color:var(--slate);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-1px;
+}
+.equity-bar{
+  display:flex;height:46px;border-radius:var(--r-sm);
+  overflow:hidden;
+  box-shadow:var(--shadow-xs);
+}
+.equity-seg{
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:12px;font-weight:700;
+  flex-direction:column;line-height:1.2;
+  font-family:var(--mono);
+  letter-spacing:0.3px;
+}
+.equity-seg.s1{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-3) 100%)}
+.equity-seg.s2{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-2) 100%)}
+.equity-seg.s3{background:linear-gradient(135deg,var(--amber) 0%,#b45309 100%)}
+.equity-seg.s4{background:linear-gradient(135deg,#f43f5e 0%,#be123c 100%)}
+.equity-seg.s5{background:linear-gradient(135deg,var(--emerald) 0%,#047857 100%)}
+
+/* ===== 表格（高端） ===== */
+.data-table{
+  width:100%;border-collapse:collapse;
+  font-size:12.5px;background:var(--card);
+  font-variant-numeric:tabular-nums;
+  border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+}
+.data-table th{
+  background:var(--card-2);
+  color:var(--slate-2);
+  padding:11px 12px;text-align:left;
+  font-weight:700;font-size:10px;letter-spacing:1.2px;
+  text-transform:uppercase;
+  font-family:var(--mono);
+  border-bottom:1px solid var(--line);
+}
+.data-table th.num{text-align:right}
+.data-table td{
+  padding:11px 12px;border-bottom:1px solid var(--line);
+  color:var(--slate);
+}
+.data-table td.num{text-align:right;font-family:var(--mono);font-weight:700;color:var(--slate)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.total{
+  background:var(--primary-soft);
+  font-weight:700;
+}
+.data-table tr.total td{
+  border-top:1px solid var(--primary);
+  color:var(--primary-3);
+}
+.table-wrap{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  margin:14px 0;
+}
+
+/* ===== 提示框（高端） ===== */
+.info-box,.highlight-box,.danger-box,.success-box,.key-facts{
+  padding:14px 16px;margin:14px 0;
+  font-size:13.5px;line-height:1.75;
+  border-left:3px solid var(--primary);
+  background:var(--card);
+  color:var(--slate);
+  border-radius:var(--r-sm);
+  box-shadow:var(--shadow-xs);
+  position:relative;
+}
+.info-box{border-left-color:var(--primary);background:linear-gradient(90deg,var(--primary-soft) 0%,var(--card) 50%)}
+.highlight-box{border-left-color:var(--amber);background:linear-gradient(90deg,var(--amber-soft) 0%,var(--card) 50%)}
+.danger-box{border-left-color:var(--rose);background:linear-gradient(90deg,var(--rose-soft) 0%,var(--card) 50%)}
+.success-box{border-left-color:var(--emerald);background:linear-gradient(90deg,var(--emerald-soft) 0%,var(--card) 50%)}
+.key-facts{
+  border-left:3px solid var(--primary);
+  background:linear-gradient(135deg,var(--primary-soft) 0%,var(--card) 100%);
+  position:relative;
+  padding:18px 18px 18px 52px;
+  color:var(--slate);
+}
+.key-facts::before{
+  content:'★';position:absolute;left:18px;top:16px;
+  color:var(--primary);font-size:22px;
+  font-weight:700;
+}
+
+/* ===== 现金余额 3 级红线 ===== */
+.cash-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
+.cash-card{text-align:center;padding:14px 8px 10px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--card);position:relative;overflow:hidden}
+.cash-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:currentColor;opacity:0.5}
+.cash-card.safe{color:#16a34a}
+.cash-card.warn{color:#d97706}
+.cash-card.danger{color:#dc2626}
+.cash-icon{font-size:24px;margin-bottom:6px;line-height:1}
+.cash-name{font-family:var(--display);font-size:13px;font-weight:700;color:var(--slate);margin-bottom:4px;letter-spacing:-0.2px}
+.cash-rule{font-family:var(--mono);font-size:11px;font-weight:700;margin-bottom:4px}
+.cash-act{font-size:10px;color:var(--ink-3);line-height:1.4}
+@media (max-width:480px){.cash-card{padding:12px 6px 8px}.cash-icon{font-size:20px}.cash-name{font-size:12px}.cash-rule{font-size:10px}}
+.info-box b,.highlight-box b,.danger-box b,.success-box b,.key-facts b{font-weight:700;color:var(--primary-3)}
+
+/* ===== 经营范围块 ===== */
+.scope-block{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:4px solid var(--primary);
+  border-radius:var(--r-md);
+  padding:14px 16px 12px;
+  margin:10px 0;
+  box-shadow:var(--shadow-xs);
+}
+.scope-title{
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  color:var(--slate);
+  margin-bottom:8px;
+  padding-bottom:6px;
+  border-bottom:1px dashed var(--line);
+  letter-spacing:-0.2px;
+}
+.scope-subtitle{
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:700;
+  color:var(--primary-3);
+  margin:8px 0 4px;
+  letter-spacing:0.5px;
+}
+.scope-list{
+  font-size:12.5px;
+  line-height:1.8;
+  color:var(--ink-2);
+}
+.scope-list b{
+  color:var(--slate);
+  font-weight:700;
+  margin-right:4px;
+}
+.scope-tip{
+  margin-top:14px;
+  padding:12px 14px;
+  background:var(--primary-soft);
+  border:1px solid var(--primary);
+  border-radius:var(--r-sm);
+  font-size:12px;
+  line-height:1.7;
+  color:var(--ink);
+}
+.scope-tip b{
+  color:var(--primary-3);
+  font-weight:700;
+}
+
+/* ===== 公式块 ===== */
+.formula-block{
+  background:linear-gradient(135deg,var(--primary-soft) 0%,var(--card) 100%);
+  border:1px solid var(--primary);
+  border-left:4px solid var(--primary);
+  border-radius:var(--r-md);
+  padding:16px 18px;
+  margin-bottom:12px;
+  color:var(--slate);
+  box-shadow:var(--shadow-xs);
+}
+.formula-title{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:700;
+  color:var(--primary-3);
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  padding-bottom:8px;
+  border-bottom:1px dashed var(--primary);
+}
+.formula-line{
+  font-family:var(--mono);
+  font-size:13px;
+  line-height:1.9;
+  color:var(--slate);
+  padding:3px 0;
+  word-break:break-all;
+  font-weight:500;
+}
+.formula-tag{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  padding:2px 8px;
+  border-radius:4px;
+  font-weight:700;
+  margin-right:8px;
+  font-size:11px;
+  letter-spacing:0.3px;
+}
+
+/* ===== 规则块 ===== */
+.rule-block{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  padding:14px 16px;
+  margin-bottom:10px;
+  box-shadow:var(--shadow-xs);
+}
+.rule-title{
+  font-family:var(--display);
+  font-size:14px;
+  font-weight:700;
+  color:var(--slate);
+  margin-bottom:10px;
+  padding-bottom:8px;
+  border-bottom:1px dashed var(--line);
+  letter-spacing:-0.2px;
+}
+.rule-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+  margin-bottom:6px;
+}
+.rule-table th{
+  background:var(--primary-soft);
+  color:var(--slate);
+  padding:6px 8px;
+  text-align:left;
+  font-weight:700;
+  font-size:11px;
+  border-bottom:1px solid var(--line);
+}
+.rule-table td{
+  padding:7px 8px;
+  border-bottom:1px solid var(--line);
+  color:var(--ink-2);
+  font-size:12px;
+}
+.rule-table td.num,.rule-table th.num{
+  text-align:right;
+  font-family:var(--mono);
+  font-weight:700;
+  color:var(--primary-3);
+}
+.rule-table tr:last-child td{
+  border-bottom:none;
+}
+.rule-text{
+  font-size:12.5px;
+  color:var(--ink-2);
+  line-height:1.7;
+  padding:3px 0;
+}
+.rule-text b{color:var(--primary-3);font-weight:700}
+.rule-note{
+  font-size:11.5px;
+  color:var(--ink-3);
+  background:var(--bg);
+  padding:6px 10px;
+  border-radius:6px;
+  margin-top:8px;
+  line-height:1.5;
+  border-left:2px solid var(--primary);
+}
+.rule-example{
+  font-size:12px;
+  color:var(--rose);
+  background:rgba(244,63,94,.06);
+  padding:6px 10px;
+  border-radius:6px;
+  margin-top:6px;
+  font-weight:600;
+  border-left:2px solid var(--rose);
+}
+.key-facts b{color:var(--primary-3)}
+
+/* ===== 关键数字 ===== */
+.key-num{
+  display:inline-block;
+  font-family:var(--mono);
+  font-weight:700;
+  color:var(--primary-3);
+  background:var(--primary-soft);
+  border:1px solid rgba(255,107,26,.15);
+  border-radius:5px;
+  padding:1px 7px;
+}
+
+/* ===== 大数字（烫金橙渐变） ===== */
+.big-number{
+  text-align:left;padding:24px 20px;
+  background:var(--card);
+  color:var(--slate);
+  border-radius:var(--r-lg);
+  margin-bottom:14px;position:relative;
+  box-shadow:var(--shadow-xs);
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.big-number::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--primary) 0%,var(--amber) 50%,var(--teal) 100%);
+}
+.big-number::after{
+  content:'';position:absolute;bottom:-40px;right:-30px;
+  width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,26,.10) 0%,transparent 70%);
+  pointer-events:none;
+}
+.big-number .amount{
+  font-family:var(--display);
+  font-size:50px;font-weight:700;line-height:1;
+  letter-spacing:-2px;
+  font-variant-numeric:tabular-nums;
+  color:var(--slate);
+}
+.big-number .unit{
+  font-size:18px;font-weight:600;margin-left:6px;
+  color:var(--slate-3);
+  font-family:var(--sans);
+}
+.big-number .desc{
+  font-size:10.5px;margin-top:10px;letter-spacing:2px;
+  color:var(--slate-3);
+  text-transform:uppercase;
+  font-family:var(--mono);
+  font-weight:700;
+}
+
+/* ===== 章节（烫金橙边框 + 阴影） ===== */
+.chapter{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  margin-bottom:10px;
+  overflow:hidden;transition:all 0.3s cubic-bezier(.16,1,.3,1);
+  box-shadow:var(--shadow-xs);
+}
+.chapter:hover{box-shadow:var(--shadow)}
+.chapter-header{
+  padding:18px;
+  display:flex;align-items:center;gap:14px;cursor:pointer;
+  user-select:none;font-weight:600;
+  background:var(--card);transition:all 0.3s;
+  color:var(--slate);
+  position:relative;
+}
+.chapter-header:hover{background:var(--card-2)}
+.chapter-header.open{
+  background:var(--card-2);
+  color:var(--slate);
+}
+.chapter-header .ch-num{
+  width:40px;height:40px;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--primary) 0%,var(--primary-3) 100%);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;
+  font-family:var(--mono);
+  flex-shrink:0;
+  letter-spacing:-0.5px;
+  box-shadow:0 2px 10px rgba(255,107,26,.30);
+}
+.chapter-header .ch-name{
+  flex:1;
+  font-family:var(--display);
+  font-size:17px;font-weight:700;
+  letter-spacing:-0.4px;
+  line-height:1.3;
+}
+.chapter-header .ch-count{
+  font-size:10px;padding:3px 9px;
+  background:var(--card);
+  color:var(--slate-3);
+  font-weight:700;
+  border-radius:100px;
+  border:1px solid var(--line);
+  font-family:var(--mono);
+  letter-spacing:0.5px;
+}
+.chapter-header.open .ch-count{background:var(--primary-soft);color:var(--primary-3);border-color:rgba(255,107,26,.2)}
+.chapter-header .arrow{
+  font-size:14px;transition:transform 0.4s cubic-bezier(.16,1,.3,1);
+  color:var(--slate-3);
+  font-weight:300;
+}
+.chapter-header.open .arrow{transform:rotate(45deg);color:var(--primary)}
+.chapter-content{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.5s cubic-bezier(.16,1,.3,1);
+}
+.chapter-content.open{max-height:12000px}
+
+.article{
+  padding:20px 18px;border-top:1px solid var(--line);
+  animation:fadeUp .5s ease;
+}
+.article:last-child{border-bottom:none}
+.article-num-tag{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:3px 9px;
+  background:var(--primary-soft);
+  color:var(--primary-3);
+  margin-bottom:8px;letter-spacing:1px;
+  border-radius:100px;
+  font-family:var(--mono);
+  border:1px solid rgba(255,107,26,.15);
+}
+.article-title{
+  font-family:var(--display);
+  font-size:18px;font-weight:700;
+  margin-bottom:12px;
+  color:var(--slate);
+  line-height:1.35;
+  letter-spacing:-0.4px;
+}
+.article-body{
+  font-size:14px;line-height:1.85;
+  color:var(--slate-2);
+}
+.article-body b{color:var(--slate);font-weight:700;background:var(--primary-soft);padding:0 4px;border-radius:3px}
+.article-body table{font-size:11px;width:100%;border-collapse:collapse;margin:10px 0}
+.article-body th{background:var(--card-2);padding:9px 10px;text-align:left;font-weight:700;border:1px solid var(--line);color:var(--slate);font-family:var(--mono);text-transform:uppercase;font-size:10px;letter-spacing:0.5px}
+.article-body td{padding:9px 10px;border:1px solid var(--line);color:var(--slate-2)}
+
+/* ===== 利润分配公式（高端） ===== */
+.formula-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  padding:22px 20px;color:var(--slate);
+  margin-bottom:14px;position:relative;
+  box-shadow:var(--shadow-xs);
+  overflow:hidden;
+}
+.formula-card::before{
+  content:'FORMULA';position:absolute;top:14px;right:16px;
+  font-size:9px;color:var(--primary-3);font-weight:700;
+  letter-spacing:1.8px;
+  font-family:var(--mono);
+  background:var(--primary-soft);
+  padding:3px 8px;
+  border-radius:100px;
+  border:1px solid rgba(255,107,26,.15);
+}
+.formula-card::after{
+  content:'';position:absolute;bottom:-30px;right:-20px;
+  width:100px;height:100px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,26,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.formula-step{
+  position:relative;z-index:1;
+  font-size:13.5px;line-height:2;
+  margin-top:8px;
+  color:var(--slate);
+}
+.formula-step .layer-title{
+  font-size:11px;
+  color:var(--primary-3);
+  font-weight:700;
+  letter-spacing:1.2px;
+  margin-bottom:8px;
+  margin-top:10px;
+  padding:4px 12px;
+  background:var(--primary-soft);
+  border-radius:100px;
+  text-transform:uppercase;
+  font-family:var(--mono);
+  display:inline-block;
+  border:1px solid rgba(255,107,26,.2);
+}
+.formula-step .lbl{color:var(--slate-2);font-weight:500}
+.formula-step .val{
+  font-weight:700;color:var(--primary-3);
+  background:var(--primary-soft);
+  border:1px solid rgba(255,107,26,.15);
+  border-radius:5px;
+  padding:1px 9px;margin:0 4px;
+  font-family:var(--mono);
+}
+.formula-step .note{
+  color:var(--slate-3);
+  font-size:12px;
+  margin-left:4px;
+  font-style:italic;
+  font-family:var(--serif);
+}
+.formula-step .total{
+  color:var(--slate);
+  font-weight:800;font-size:15px;
+  font-family:var(--display);
+  letter-spacing:-0.3px;
+}
+.formula-step .danger{
+  color:var(--rose);
+  font-weight:700;
+  background:var(--rose-soft);
+  padding:0 5px;
+  border-radius:3px;
+}
+.formula-step .divider{height:1px;background:var(--line);margin:12px 0}
+.formula-step .total-row{
+  text-align:right;
+  font-size:14px;
+  font-weight:700;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:2px dashed var(--primary);
+  color:var(--primary-3);
+}
+.formula-step .check{
+  color:var(--emerald);
+  font-weight:700;
+  margin-left:6px;
+}
+
+/* ===== 章节内小标题 ===== */
+h3{
+  font-family:var(--mono);
+  font-size:11px;font-weight:700;color:var(--primary-3);
+  margin:22px 0 12px;
+  letter-spacing:1.5px;
+  display:inline-block;
+  background:var(--primary-soft);
+  padding:5px 12px;
+  border-radius:100px;
+  text-transform:uppercase;
+  border:1px solid rgba(255,107,26,.15);
+}
+
+/* ===== 签字栏（高端） ===== */
+.signature-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  padding:22px 18px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-xs);
+}
+.signature-card h2{
+  font-family:var(--display);
+  font-size:17px;font-weight:700;
+  margin-bottom:16px;
+  color:var(--slate);
+  display:flex;align-items:center;gap:10px;
+  letter-spacing:-0.3px;
+}
+.signature-card h2::before{
+  content:'§';color:#fff;
+  font-size:14px;font-weight:800;
+  background:linear-gradient(135deg,var(--primary) 0%,var(--primary-3) 100%);
+  width:26px;height:26px;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(255,107,26,.3);
+}
+.sign-row{
+  display:flex;align-items:center;gap:14px;padding:11px 0;
+  border-bottom:1px solid var(--line);
+}
+.sign-row:last-child{border-bottom:none}
+.sign-name{
+  font-weight:600;font-size:13px;
+  color:var(--slate);
+  min-width:84px;
+}
+.sign-line{
+  flex:1;border-bottom:1.5px dashed var(--slate-3);
+  height:26px;
+}
+
+/* ===== Footer（高端） ===== */
+.footer{
+  text-align:center;padding:22px 18px;margin-top:28px;
+  font-size:11px;color:var(--slate-3);
+  background:var(--card);
+  border-radius:var(--r-md);
+  line-height:1.7;
+  border:1px solid var(--line);
+  font-family:var(--mono);
+  letter-spacing:0.3px;
+  box-shadow:var(--shadow-xs);
+  position:relative;
+  overflow:hidden;
+}
+.footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--primary) 0%,var(--teal) 50%,var(--amber) 100%);
+}
+.footer p{margin:3px 0}
+.footer a{color:var(--primary-3);text-decoration:none;font-weight:700;border-bottom:1px dashed var(--primary)}
+
+/* ===== 按钮（烫金橙 FAB） ===== */
+.btn-print,.btn-top{
+  position:fixed;width:48px;height:48px;border-radius:50%;
+  background:var(--card);border:none;
+  font-size:16px;cursor:pointer;z-index:50;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(15,23,42,.12),0 1px 3px rgba(15,23,42,.08);
+  color:var(--slate);
+  transition:all 0.25s cubic-bezier(.16,1,.3,1);
+}
+.btn-top{right:16px;bottom:16px}
+.btn-print{right:16px;bottom:74px}
+.btn-print:hover,.btn-top:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,23,42,.16)}
+.btn-print:active,.btn-top:active{transform:scale(0.92);background:var(--primary);color:#fff;box-shadow:var(--shadow-glow)}
+
+/* ===== 响应式 ===== */
+@media (max-width:480px){
+  .header h1{font-size:26px}
+  .header h1 .co-suffix{font-size:12px}
+  .header-content{padding:20px 16px 18px}
+  .container{padding:18px 14px}
+  .big-number{padding:22px 16px}
+  .big-number .amount{font-size:40px}
+  .summary-item .value{font-size:24px}
+  .biz-card .name{font-size:13.5px}
+  .article-title{font-size:16px}
+  .section-title h2{font-size:21px}
+  .chapter-header .ch-num{width:36px;height:36px;font-size:13px}
+  .chapter-header .ch-name{font-size:15.5px}
+  .declaration-text{font-size:16px}
+  .timeline{padding-left:22px}
+  .timeline-item::before{left:-21px;width:9px;height:9px;border-width:2px}
+  .equity-title .value{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-fixed">
+<div class="header">
+<div class="header-content">
+  <div class="header-meta"><span class="header-meta-dot"></span>公司全档 · COMPANY PROFILE</div>
+  <h1>包头市信创教育<span class="co-suffix">科技有限公司</span></h1>
+  <div class="header-tagline">AI FIRST · 资源方 + 需求方连接平台</div>
+  <div class="header-sub"><b>5 校聘 + 2 外部顾问</b> 创始人创始人 A · 内蒙古包头市</div>
+</div>
+</div>
+<div class="quick-nav">
+  <a href="#summary">📊 速查</a>
+  <a href="#biz">🎯 业务</a>
+  <a href="#team">👥 团队</a>
+  <a href="#roadmap">📈 5年</a>
+  <a href="#finance">💰 财务</a>
+  <a href="#charter">📜 章程</a>
+  <a href="#sign">✍ 签字</a>
+</div>
+</div>
+
+<div class="container">
+
+<!-- 1. 公司宣言 -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">◆</span>
+    <h2>公司宣言</h2>
+    <span class="sub">使命 · 愿景 · 价值观</span>
+  </div>
+  <div class="section-body">
+    <div class="declaration">
+      <div class="declaration-text">连接 AI 时代的资源方与需求方<br>用最小成本创造最大价值</div>
+      <div class="declaration-foot">— 7 人核心团队 · 2026 启程 —</div>
+    </div>
+    <div class="core-idea">
+      <div class="idea-title">核心理念</div>
+      <div class="idea-grid">
+        <div class="idea-card idea-1">
+          <div class="idea-num">01</div>
+          <div class="idea-name">AI First</div>
+          <div class="idea-desc">把 AI 武装到每个<br>产品 / 流程 / 决策</div>
+        </div>
+        <div class="idea-card idea-2">
+          <div class="idea-num">02</div>
+          <div class="idea-name">做连接者</div>
+          <div class="idea-desc">帮资源方找到需求方<br>帮需求方找到资源方</div>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">
+      <b>使命</b>：用 AI 赋能 5 大业务（教具 / 未来教室 5 大类 / 选课 / 比赛培训 / 文创）<br>
+      <b>愿景</b>：5 校聘 + AI + 业余者 = 内蒙古 AI 教育科技领跑者
+    </div>
+  </div>
+</div>
+
+<!-- 2. 核心速查 -->
+<div class="section" id="summary">
+  <div class="section-title">
+    <span class="icon">▣</span>
+    <h2>核心信息速查</h2>
+    <span class="sub">1 分钟读完</span>
+  </div>
+  <div class="section-body" style="padding:0;">
+    <div class="summary-grid">
+      <div class="summary-item brand">
+        <span class="label">🏢 公司全称</span>
+        <span class="value">包头市信创教育科技有限公司</span>
+      </div>
+      <div class="summary-item">
+        <span class="label">注册资本</span>
+        <span class="value">50 万</span>
+      </div>
+      <div class="summary-item">
+        <span class="label">首期实缴</span>
+        <span class="value">5 万</span>
+      </div>
+      <div class="summary-item">
+        <span class="label">5 年实缴</span>
+        <span class="value">50 万</span>
+      </div>
+      <div class="summary-item">
+        <span class="label">团队规模</span>
+        <span class="value">7 人</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 3. 股权结构 -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon">◆</span>
+    <h2>股权结构</h2>
+    <span class="sub">5 校聘 100% 持股</span>
+  </div>
+  <div class="section-body">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>校聘</th><th class="num">持股</th><th class="num">出资</th><th class="num">首期实缴</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>创始人 A（董事长）</td><td class="num"><b>40%</b></td><td class="num">20 万</td><td class="num">2.00 万</td></tr>
+          <tr><td>创始人 B（CEO）</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td></tr>
+          <tr><td>创始人 C（运营总监）</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td></tr>
+          <tr><td>创始人 D（商务总监）</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td></tr>
+          <tr><td>创始人 E（客户总监）</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td></tr>
+          <tr class="total"><td><b>5 校聘合计</b></td><td class="num"><b>100%</b></td><td class="num"><b>50 万</b></td><td class="num"><b>5 万</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="danger-box">
+      <b>法律红线</b>：2 名外部顾问（顾问 F/顾问 G）<b>不持股、不领股权分红、不任董监高、不领工资</b>（叫"顾问费"）。
+    </div>
+    <div class="info-box">
+      5 校聘股权对外转让须经 <b>5/5 同意</b>（任一反对即否决）
+    </div>
+  </div>
+</div>
+
+<!-- 4. 业务中心 -->
+<div class="section" id="biz">
+  <div class="section-title">
+    <span class="icon">●</span>
+    <h2>5 大业务（未来教室 5 大类）</h2>
+    <span class="sub">AI First × 做连接者</span>
+  </div>
+  <div class="section-body">
+    <div class="biz-grid">
+      <div class="biz-card red">
+        <span class="num">01 · 教具销售</span>
+        <div class="name">教学设备销售</div>
+        <div class="scope">教学仪器 · 教具 · 智慧校园设备 · 文体用品 · 工具包</div>
+        <div class="team">占比 30% · 13% 增值税 · I6590</div>
+      </div>
+      <div class="biz-card blue span-2">
+        <span class="num">02 · 未来教室合作（5 大类）⭐</span>
+        <div class="name">AI 教室 / 空天科技 / 通用技术 / 劳动教育 / 创客</div>
+        <div class="scope">
+          <b>5 类未来教室</b>：<br>
+          🤖 <b>AI 教室</b>（AI 教学设备 + 算力）<br>
+          🚀 <b>空天科技项目教室（3 大领域）</b><br>
+          &nbsp;&nbsp;&nbsp;🚁 无人机（5 校聘主推）<br>
+          &nbsp;&nbsp;&nbsp;🛰️ 北斗定位设备（5 校聘找合作方）<br>
+          &nbsp;&nbsp;&nbsp;🌍 智能遥感设备（5 校聘找合作方）<br>
+          🔧 <b>通用技术教室</b>（钳工 / 电工 / 木工）<br>
+          🌱 <b>劳动教育教室</b>（家政 / 烹饪 / 手工）<br>
+          🛠️ <b>创客教室</b>（3D 打印 / 激光雕刻 / 机器人）<br>
+          <small>5 校聘公司 = 资源整合方，<b>不生产设备 / 不施工 / 不开班</b></small>
+        </div>
+        <div class="team">占比 35% · 13% + 6% · I6520 + I6590 + I6510 + I6560 + I6570 + P8291</div>
+      </div>
+      <div class="biz-card green">
+        <span class="num">03 · 智慧选课</span>
+        <div class="name">教务管理平台 / SaaS</div>
+        <div class="scope">智慧选课 · 排课系统 · 教务管理 · AI 教学助手</div>
+        <div class="team">占比 15% · 13% / 6% · I6510 + I6560 + I6570</div>
+      </div>
+      
+      <div class="biz-card orange">
+        <span class="num">04 · 比赛 + 教师培训</span>
+        <div class="name">白名单比赛协办 + 教师专业发展</div>
+        <div class="scope">比赛平台 · 比赛内容 · 教师培训规划/资源/平台/咨询</div>
+        <div class="team">占比 5% · 6% · P8291（5 校聘公司不实际开班）</div>
+      </div>
+      <div class="biz-card pink span-2">
+        <span class="num">05 · 校园文创</span>
+        <div class="name">校园文创产品设计与销售</div>
+        <div class="scope">教学工具周边 · 自有品牌文创 · 联名文创 · 地域文化周边<br>
+        <b>5 校聘本职单位 100% 隔离</b> · 校名校徽需书面授权 · 不做图书/仿冒/政治敏感</div>
+        <div class="team">占比 10% · 13% / 6% · M7482 + M7484 + F5219 + F5209</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. 7 人分工 -->
+<div class="section" id="team">
+  <div class="section-title">
+    <span class="icon">◇</span>
+    <h2>7 人核心团队</h2>
+    <span class="sub">5 校聘 + 2 外部顾问</span>
+  </div>
+  <div class="section-body" style="padding:0;">
+    <div class="person-tabs">
+      <div class="person-tab active" onclick="showPerson('p1')">创始人 A</div>
+      <div class="person-tab" onclick="showPerson('p2')">创始人 B</div>
+      <div class="person-tab" onclick="showPerson('p3')">创始人 C</div>
+      <div class="person-tab" onclick="showPerson('p4')">创始人 D</div>
+      <div class="person-tab" onclick="showPerson('p5')">创始人 E</div>
+      <div class="person-tab" onclick="showPerson('p6')">顾问 F</div>
+      <div class="person-tab" onclick="showPerson('p7')">顾问 G</div>
+    </div>
+    <div class="person-content active" id="p1">
+      <h3>创始人 A <span style="font-size:11px;color:var(--ink-3);margin-left:6px;">董事长</span></h3>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:0.5px;">持股 40% · 创始人</div>
+      <div class="role-grid">
+        <div><div class="lbl">股权</div><div class="val">40% (20 万)</div></div>
+        <div><div class="lbl">月工资占比</div><div class="val">20%</div></div>
+        <div><div class="lbl">归属中心</div><div class="val">研发 / 政企 / 咨询+培训 / 品牌+电商</div></div>
+        <div><div class="lbl">关键权限</div><div class="val">一票否决 × 10</div></div>
+      </div>
+      <div class="highlight-box">创始人 10 项一票否决：章程修改 / 增减资本 / 合并分立 / 变更形式 / 引入新股东 / 大额投资 / 5 校聘股权对外转让 / 关键岗位任免 / 利润分配 / 战略方向</div>
+    </div>
+    <div class="person-content" id="p2">
+      <h3>创始人 B <span style="font-size:11px;color:var(--ink-3);margin-left:6px;">CEO</span></h3>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:0.5px;">持股 15% · 日常经营</div>
+      <div class="role-grid">
+        <div><div class="lbl">股权</div><div class="val">15% (7.5 万)</div></div>
+        <div><div class="lbl">月工资占比</div><div class="val">7.5%</div></div>
+        <div><div class="lbl">归属中心</div><div class="val">研发 / 综合管理</div></div>
+        <div><div class="lbl">AB 角</div><div class="val">创始人 A</div></div>
+      </div>
+    </div>
+    <div class="person-content" id="p3">
+      <h3>创始人 C <span style="font-size:11px;color:var(--ink-3);margin-left:6px;">运营总监</span></h3>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:0.5px;">持股 15% · 技术部署</div>
+      <div class="role-grid">
+        <div><div class="lbl">股权</div><div class="val">15% (7.5 万)</div></div>
+        <div><div class="lbl">月工资占比</div><div class="val">7.5%</div></div>
+        <div><div class="lbl">归属中心</div><div class="val">研发</div></div>
+        <div><div class="lbl">项目角色</div><div class="val">研发+部署负责人</div></div>
+      </div>
+    </div>
+    <div class="person-content" id="p4">
+      <h3>创始人 D <span style="font-size:11px;color:var(--ink-3);margin-left:6px;">商务总监</span></h3>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:0.5px;">持股 15% · 商业转化</div>
+      <div class="role-grid">
+        <div><div class="lbl">股权</div><div class="val">15% (7.5 万)</div></div>
+        <div><div class="lbl">月工资占比</div><div class="val">7.5%</div></div>
+        <div><div class="lbl">归属中心</div><div class="val">政企 / 品牌+电商</div></div>
+        <div><div class="lbl">项目角色</div><div class="val">销售负责人</div></div>
+      </div>
+    </div>
+    <div class="person-content" id="p5">
+      <h3>创始人 E <span style="font-size:11px;color:var(--ink-3);margin-left:6px;">客户总监</span></h3>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:0.5px;">持股 15% · 监督财务</div>
+      <div class="role-grid">
+        <div><div class="lbl">股权</div><div class="val">15% (7.5 万)</div></div>
+        <div><div class="lbl">月工资占比</div><div class="val">7.5%</div></div>
+        <div><div class="lbl">归属中心</div><div class="val">咨询+培训 / 综合管理</div></div>
+        <div><div class="lbl">关键角色</div><div class="val">监事（独立监督）</div></div>
+      </div>
+    </div>
+    <div class="person-content" id="p6">
+      <h3>顾问 F <span style="font-size:11px;color:var(--ink-3);margin-left:6px;">品牌主理人（外部顾问）</span></h3>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:0.5px;">外部顾问（0% 持股）· 4 不做 4 做 3 边界</div>
+      <div class="role-grid">
+        <div><div class="lbl">股权</div><div class="val" style="color:var(--rose)">0%</div></div>
+        <div><div class="lbl">顾问费</div><div class="val">净利润 10% / 2 / 12</div></div>
+        <div><div class="lbl">归属中心</div><div class="val">品牌+电商</div></div>
+        <div><div class="lbl">本职</div><div class="val">本职教师</div></div>
+      </div>
+      <div class="danger-box"><b>4 不做</b>：❌ 不持股 / ❌ 不分红 / ❌ 不任董监高 / ❌ 不领工资（叫"顾问费"）<br>
+<b>4 做</b>：顾问费 / 项目顾问费 / 稿费讲师资 / 项目相关补贴</div>
+    </div>
+    <div class="person-content" id="p7">
+      <h3>顾问 G <span style="font-size:11px;color:var(--ink-3);margin-left:6px;">技术顾问（外部顾问）</span></h3>
+      <div style="font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:0.5px;">外部顾问（0% 持股）· 4 不做 4 做 3 边界</div>
+      <div class="role-grid">
+        <div><div class="lbl">股权</div><div class="val" style="color:var(--rose)">0%</div></div>
+        <div><div class="lbl">顾问费</div><div class="val">净利润 10% / 2 / 12</div></div>
+        <div><div class="lbl">归属中心</div><div class="val">研发</div></div>
+        <div><div class="lbl">本职</div><div class="val">本职教师</div></div>
+      </div>
+      <div class="danger-box"><b>关键合规</b>：技术顾问（部门级），<b>不是</b>公司高管，<b>不参与</b>公司经营决策</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 8. 章程 -->
+<div class="section" id="charter">
+  <div class="section-title">
+    <span class="icon">▤</span>
+    <h2>公司章程</h2>
+    <span class="sub">7 章 32 条 · 全部修复</span>
+  </div>
+  <div class="section-body" style="padding:0;">
+
+<!-- ====== 第 1 章：公司基本信息 ====== -->
+<div class="chapter">
+<div class="chapter-header open" onclick="toggleChapter(this)">
+<span class="ch-num">01</span>
+<span class="ch-name">公司基本信息</span>
+<span class="ch-count">6 条</span>
+<span class="arrow">▾</span>
+</div>
+<div class="chapter-content open">
+<div class="article">
+<span class="article-num-tag">第 1 条</span>
+<h3 class="article-title">公司基本信息</h3>
+<div class="article-body">
+<b>公司全称</b>：包头市信创教育科技有限公司<br>
+<b>英文名</b>：Baotou Xinchuang Education Technology Co., Ltd.<br>
+<b>住所</b>：内蒙古自治区包头市<br>
+<b>注册资本</b>：人民币 <span class="key-num">50 万元</span>（认缴制，5 年内实缴到位）<br>
+<b>法定代表人</b>：创始人 A<br>
+<b>公司类型</b>：有限责任公司
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 1 条附</span>
+<h3 class="article-title">公司经营范围（5 大类 11 个代码）</h3>
+<div class="article-body">
+
+<div class="scope-block">
+<div class="scope-title">🎯 一、教育服务（基础业务）— 1 个代码</div>
+<div class="scope-list">
+<b>P8291</b> 教育咨询服务（不含涉许可审批的教育培训活动）<br>
+<small style="color:var(--ink-3);">5 校聘本职是教师，可承担</small>
+</div>
+</div>
+
+<div class="scope-block">
+<div class="scope-title">💻 二、科技与软件（核心业务）— 5 个代码 ⭐</div>
+<div class="scope-list">
+<b>I6510</b> 软件开发（人工智能应用软件开发 / 教育软件 / 信创办公软件）<br>
+<b>I6520</b> 信息系统集成和物联网技术服务（智慧校园系统集成）<br>
+<b>I6560</b> 信息技术咨询服务（数字化转型咨询 / 信创咨询）<br>
+<b>I6570</b> 数字内容服务（课程视频 / 电子书 / 数字教材，不含网络出版）<br>
+<b>I6590</b> 其他信息技术服务（含教学专用仪器、教学用模型、教具销售、智慧校园设备）
+</div>
+</div>
+
+<div class="scope-block">
+<div class="scope-title">🌐 三、互联网与电商（平台网店）— 2 个代码 ⭐</div>
+<div class="scope-list">
+<b>F5209</b> 互联网销售（除销售需要许可的商品）<br>
+<small style="color:var(--ink-3);">淘宝 / 拼多多 / 京东 / 抖音开店卖教具与课程</small><br>
+<b>I6490</b> 其他互联网服务（含电子商务平台运营 / 自媒体 / 数字内容）<br>
+<small style="color:var(--ink-3);">自营商城 / 公众号 / 视频号 / 抖音号运营</small>
+</div>
+</div>
+
+<div class="scope-block">
+<div class="scope-title">🎨 四、文化创意与设计（业务 6 校园文创）— 2 个代码 ⭐</div>
+<div class="scope-list">
+<b>M7482</b> 专业设计服务（产品设计 / 工业设计 / 包装设计）<br>
+<small style="color:var(--ink-3);">校园文创产品设计 / 教具外观设计 / 教学工具设计</small><br>
+<b>M7484</b> 美术设计（IP 设计 / 插画 / 平面设计）<br>
+<small style="color:var(--ink-3);">校园文创视觉设计 / 品牌 IP 打造 / 包装视觉</small>
+</div>
+</div>
+
+<div class="scope-block">
+<div class="scope-title">🛍️ 五、零售与销售（线下渠道）— 1 个代码 ⭐</div>
+<div class="scope-list">
+<b>F5219</b> 其他零售业（线下零售 / 无店铺零售 / 跨界零售）<br>
+<small style="color:var(--ink-3);">校园店 / 礼品店 / 展会销售 / 校园地推</small>
+</div>
+</div>
+
+<div class="scope-tip">
+<b>📌 行业代码总览：</b>5 大类 11 个代码（精简 63%），覆盖 5 大业务 + 4 大渠道<br>
+<b>📌 5 校聘本职单位 100% 隔离：</b>不碰咨询 / 公关 / 翻译 / 市场调查 / 会议展览 5 类业务（5 校聘本职单位雷区，已主动删除）<br>
+<b>📌 5 校聘公司不做的特殊许可商品（8 类）：</b>危化品 / 食品 / 日化 / 农资 / 燃气设备 / 测绘设备 / 锂电池 / 干电池（资质许可风险，找品牌厂商授权或学校自备）<br>
+<b>📌 主动避开的行业大类：</b>出版 / 化妆品 / 医疗器械 / 金融 / 教培（学科类）/ 文物 / 房地产 / 全品类零售 / 劳务派遣 / 广告 / 跨境电商<br>
+<b>📌 注册时：</b>章程与营业执照保持一致，可按本表直接提交
+</div>
+
+<h4 style="margin:20px 0 8px; font-size:14px; color:var(--slate);">📌 5 校聘公司业务 5 边界 + 5 类未来教室边界</h4>
+
+<div class="scope-tip" style="background:var(--primary-soft); border-color:var(--primary);">
+<b>⚠️ P8291 不含涉许可审批的教育培训活动</b>。5 校聘公司<b>不实际开班授课</b>、<b>不作为主办方承办比赛</b>。<br><br>
+<b>5 校聘公司做：</b>培训规划 + 资源包 + 平台 + 咨询 + 比赛平台 + 比赛内容 + 比赛协办<br>
+<b>5 校聘公司不做：</b>实际开班授课 + 5 校聘公司作为比赛主办方 + 5 校聘本职单位作为主办方<br><br>
+<b>5 类未来教室（AI / 空天 / 通用 / 劳动 / 创客）边界：</b>5 校聘公司 = 资源整合方，<b>不生产 / 不施工 / 不开班 / 不测绘</b>。8 类商品不卖（危化品 / 食品 / 日化 / 农资 / 燃气 / 测绘设备 / 锂电池 / 干电池）。<br><br>
+<b>核心定位：5 校聘公司 = 资源方 / 平台方 / 咨询方</b>（不是实施方 / 主办方）
+</div>
+
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 2 条</span>
+<h3 class="article-title">公司性质 + 核心理念</h3>
+<div class="article-body">
+<b>公司性质</b>：5 名股东共同出资设立的有限责任公司，股东以认缴出资额为限承担责任。<br>
+<b>核心理念 1</b>：<b style="color:var(--primary-3);border-bottom:2px solid var(--primary)">AI First</b> — AI 是首选，用 AI 武装每个产品、流程、决策<br>
+<b>核心理念 2</b>：<b style="color:var(--primary-3);border-bottom:2px solid var(--primary)">做资源方与需求方的连接者</b> — 帮资源方找到需求方，帮需求方找到资源方
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 3 条</span>
+<h3 class="article-title">5 大业务中心（兼岗制）</h3>
+<div class="article-body">
+<div class="biz-grid">
+  <div class="biz-card red"><div class="num">01</div><div class="name">研发</div><div class="scope">AI + 教育产品研发</div><div class="team">创始人 A 兼</div></div>
+  <div class="biz-card blue"><div class="num">02</div><div class="name">政企</div><div class="scope">政府/企业客户开拓 + 未来教室合作</div><div class="team">创始人 D 兼</div></div>
+  <div class="biz-card green"><div class="num">03</div><div class="name">咨询 + 培训</div><div class="scope">教育咨询 + 教师专业发展（不实际开班）</div><div class="team">创始人 E 兼</div></div>
+  <div class="biz-card orange"><div class="num">04</div><div class="name">品牌 + 电商</div><div class="scope">自媒体 + 国内电商 + 品牌建设</div><div class="team">创始人 D 兼</div></div>
+  <div class="biz-card purple span-2"><div class="num">05</div><div class="name">综合管理</div><div class="scope">财务 + 行政 + 客户成功 + 文创业务</div><div class="team">创始人 B 兼</div></div>
+</div>
+<div class="info-box" style="margin-top:12px;">
+<b>5 校聘公司 4 大渠道</b>：5 校聘直销（基础） + 政府集采（电子卖场 / 政采云） + 招投标（公开 / 邀请） + 平台网店（淘宝 / 拼多多 / 京东 / 抖音）<br>
+<b>5 校聘本职单位 100% 隔离</b>：5 校聘本职单位不得作为 5 校聘公司客户 / 主���方 / 平台采购方
+</div>
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 4 条</span>
+<h3 class="article-title">股东责任 + 经营原则</h3>
+<div class="article-body">
+<b>股东责任</b>：5 名股东按认缴出资额承担责任，公司用全部资产还债，股东不得抽逃出资<br>
+<b>经营原则</b>：遵守国家法律、诚实守信、承担社会责任、接受政府和社会监督
+</div>
+</div>
+</div>
+</div>
+
+<!-- ====== 第 2 章：股东与股权 ====== -->
+<div class="chapter">
+<div class="chapter-header" onclick="toggleChapter(this)">
+<span class="ch-num">02</span>
+<span class="ch-name">股东与股权</span>
+<span class="ch-count">11 条</span>
+<span class="arrow">▾</span>
+</div>
+<div class="chapter-content">
+<div class="article">
+<span class="article-num-tag">第 5 条</span>
+<h3 class="article-title">股东会（最高权力机构）</h3>
+<div class="article-body">
+<b>股东会 9 项职权</b>：经营方针 / 选举董事监事 / 审议报告 / 预算决算 / 利润分配 / 增减资本 / 发行债券 / 合并分立解散 / 修改章程<br>
+<b>决议规则</b>：特别决议 2/3（修改章程/增减资本/合并分立解散）| 普通决议 1/2（其他）<br>
+<b>会议</b>：每年 1 次（3 月）| 微信群/飞书会议视为有效（已读+半数回复）| 记录保存 10 年
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 6 条</span>
+<h3 class="article-title">5 校聘股权结构（100% 持股 50 万）</h3>
+<div class="article-body">
+<div class="table-wrap"><table class="data-table">
+<thead><tr><th>人员</th><th class="num">持股</th><th class="num">认缴出资</th><th class="num">首期实缴</th><th>角色</th></tr></thead>
+<tbody>
+<tr><td>创始人 A</td><td class="num"><b>40%</b></td><td class="num">20 万</td><td class="num">2.00 万</td><td>执行董事 / 法人代表</td></tr>
+<tr><td>创始人 B</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td><td>CEO / 经理</td></tr>
+<tr><td>创始人 C</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td><td>运营总监</td></tr>
+<tr><td>创始人 D</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td><td>商务总监</td></tr>
+<tr><td>创始人 E</td><td class="num"><b>15%</b></td><td class="num">7.5 万</td><td class="num">0.75 万</td><td>客户总监</td></tr>
+<tr class="total"><td>合计</td><td class="num"><b>100%</b></td><td class="num"><b>50 万</b></td><td class="num"><b>5 万</b></td><td>—</td></tr>
+</tbody>
+</table></div>
+<b>首期实缴 5 万 = 注册资本 10%</b>（创始人 A 2 万 / 其他 4 人各 0.75 万）<br>
+<b>股东权利 7 项</b>：资产收益 / 撤销违规决议 / 转让 / 继承 / 查阅 / 终止后分剩余 / 优先购买<br>
+<b>股东义务 5 项</b>：遵守章程 / 按时出资 / 不抽逃 / 不滥用 / 不损害公司独立地位
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 7 条</span>
+<h3 class="article-title">新人机制（只参与项目绩效奖励）</h3>
+<div class="article-body">
+<b>新人身份</b>：员工 / 顾问（不是股东）<br>
+<b>新人收入</b>：项目绩效奖励（40% 池子按贡献值）| 签《项目参与确认书》| <b style="color:var(--accent)">不参与利润分配</b><br>
+<b>项目绩效奖励池</b>：40% 项目毛利池（硬规则，<b>池子固定不变</b>）| 5 校聘/2 外部顾问/新员工<b>同池分配</b> | <b>纯加权 ×1.1/×1.2/×1.3（10% 加权）</b><br>
+<b>称谓区分</b>：5 校聘/新员工=项目绩效（工资）| 2 外部顾问=项目顾问费（劳务报酬）<br>
+<b>10% 期权池</b>：未来融资时预留，用于核心员工股权激励
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 8 条</span>
+<h3 class="article-title">2 外部顾问（合规底线）<span style="font-size:11px;color:var(--ink-3);margin-left:8px;font-weight:500;">公司法第 178 条</span></h3>
+<div class="article-body">
+<div class="danger-box">
+<b style="color:var(--accent)">4 不做（绝对红线）</b>：❌ 不持股 / ❌ 不分红 / ❌ 不任董监高 / ❌ 不领工资（叫"顾问费"不叫"工资"）<br>
+<b>4 做（合规报酬）</b>：顾问费（净利润 10%/2/12）+ 项目顾问费（40% 池子）+ 稿费讲师资 + 项目相关补贴<br>
+<b>3 边界</b>：❌ 不列席董事会 / ❌ 不影响本职 / ❌ 不参与股权激励
+</div>
+<b>顾问 F</b>（0%）：包头市中小学综合实践教育中心 外部顾问 / 品牌主理人<br>
+<b>顾问 G</b>（0%）：外部顾问 / 技术顾问（部门级，非公司高管）<br>
+<b>离编后</b>：可按《5 校聘内部协议》程序参与公司股权激励
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 9 条</span>
+<h3 class="article-title">股权转让 + 异议股东回购</h3>
+<div class="article-body">
+<b>内部转让</b>：5 校聘之间可相互转让（4 校聘以上同意）<br>
+<b>对外转让</b>：需 <b>5/5 同意 + 创始人 A同意</b> | 30 日内未答复视为同意 | 优先购买权<br>
+<b>异议股东回购</b>（公司法第 89 条）：5 年不分配 / 合并分立 / 章程修改使股东利益受损 | 60 日内协商 | 90 日内诉讼
+</div>
+</div>
+</div>
+</div>
+
+<!-- ====== 第 3 章：治理架构 ====== -->
+<div class="chapter">
+<div class="chapter-header" onclick="toggleChapter(this)">
+<span class="ch-num">03</span>
+<span class="ch-name">治理架构</span>
+<span class="ch-count">5 条</span>
+<span class="arrow">▾</span>
+</div>
+<div class="chapter-content">
+<div class="article">
+<span class="article-num-tag">第 10 条</span>
+<h3 class="article-title">执行董事 + 经理（不设董事会）</h3>
+<div class="article-body">
+<b>法律依据</b>：公司法第 50 条 — 5 人公司不设董事会，设 1 名执行董事<br>
+<b>执行董事</b>：创始人 A（兼董事长）| 任期 3 年<br>
+<b>8 项职权</b>：召集股东会 / 执行决议 / 经营计划 / 财务预算 / 利润分配方案 / 内部机构 / 聘任经理 / 基本管理制度<br>
+<b>决议边界</b>：<br>
+&nbsp;&nbsp;• <b>日常事务（≤ 5 万）</b>：执行董事 1 人决定<br>
+&nbsp;&nbsp;• <b>重大事项（> 5 万）</b>：股东会决议<br>
+<b>微信群/飞书会议有效标准</b>：① 文字记录 ② 全体已读 ③ 半数以上明确回复"同意"
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 11 条</span>
+<h3 class="article-title">经理（CEO）</h3>
+<div class="article-body">
+<b>经理由创始人 B担任（CEO）</b>，由执行董事聘任<br>
+<b>5 项职权</b>：主持生产经营 / 组织实施股东会决议 / 年度经营计划 / 拟订机构设置 / 提请聘任副经理和财务负责人
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 12 条</span>
+<h3 class="article-title">关键岗位 AB 角机制</h3>
+<div class="article-body">
+<div class="key-facts">
+<b>避免创始人/CEO 突发意外时公司瘫痪</b>：<br>
+• 法定代表人：创始人 A → AB 角 创始人 B<br>
+• CEO：创始人 B → AB 角 创始人 A<br>
+• 财务：创始人 B（兼）→ AB 角 创始人 E<br>
+• 销售 / 部署 / 客户总监：分别有 AB 角<br>
+<b>触发</b>：连续 7 日无法履职 + 3 名 5 校聘联名确认
+</div>
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 13 条</span>
+<h3 class="article-title">监事（不设监事会）</h3>
+<div class="article-body">
+<b>法律依据</b>：公司法第 51 条 — 不设监事会，设 1 名监事<br>
+<b>首任监事：创始人 E</b>（5 校聘之一，符合"非董事/非高管" — 客户总监不属于公司法意义上的"高管"）<br>
+<b>4 项职权</b>：检查财务 / 监督董事高管 / 纠正损害行为 / 提议召开临时股东会<br>
+<b>任期</b>：3 年 | 董事/高管<b>不得兼任</b>监事
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 14 条</span>
+<h3 class="article-title">高级管理人员定义</h3>
+<div class="article-body">
+<b>属于高管</b>（公司法第 265 条）：经理（CEO）/ 副经理 / 财务负责人<br>
+<b>不属于高管</b>：董事长（创始人 A）/ 监事（创始人 E）/ 部门负责人（部署/销售/客户总监/品牌主理人/技术总监）<br>
+<b>关键意义</b>：2 外部顾问（顾问 F/顾问 G）即使担任部门负责人，也<b>不触发《事业单位人事管理条例》"不得在企业兼职"规定</b>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ====== 第 4 章：利润分配 ====== -->
+<div class="chapter">
+<div class="chapter-header" onclick="toggleChapter(this)">
+<span class="ch-num">04</span>
+<span class="ch-name">利润分配</span>
+<span class="ch-count">5 条</span>
+<span class="arrow">▾</span>
+</div>
+<div class="chapter-content">
+<div class="article">
+<span class="article-num-tag">第 15 条</span>
+<h3 class="article-title">财务制度</h3>
+<div class="article-body">
+<b>建账</b>：按国家规定建账（用友/金蝶/Excel）| 真实准确完整核算<br>
+<b>财务负责人</b>：CEO 创始人 B兼任 + 招聘<b>兼职会计</b> 1 名（初创阶段）<br>
+<b>创始人 E不兼任财务负责人</b>（监事与财务负责人不能同一人）<br>
+<div class="cash-grid">
+  <div class="cash-card safe">
+    <div class="cash-icon">🟢</div>
+    <div class="cash-name">安全线</div>
+    <div class="cash-rule">≥ 6 个月支出</div>
+    <div class="cash-act">一切照常</div>
+  </div>
+  <div class="cash-card warn">
+    <div class="cash-icon">🟡</div>
+    <div class="cash-name">预警线</div>
+    <div class="cash-rule">&lt; 3 个月支出</div>
+    <div class="cash-act">启动应急（催回款）</div>
+  </div>
+  <div class="cash-card danger">
+    <div class="cash-icon">🔴</div>
+    <div class="cash-name">应急线</div>
+    <div class="cash-rule">&lt; 1 个月支出</div>
+    <div class="cash-act">股东借款 / 战略融资</div>
+  </div>
+</div>
+<div class="info-box">
+<b>计提税费</b>：5 校聘+2 外部顾问均为<b>兼职团队</b>，残保金/工会/职工教育等费用<b>由本职单位承担</b>，公司<b>不重复计提</b>（节省 ≈ 20 万/年）
+</div>
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 16 条</span>
+<h3 class="article-title">利润分配顺序（5 步）<span style="font-size:11px;color:var(--ink-3);margin-left:8px;font-weight:500;">公司法第 166 条</span></h3>
+<div class="article-body">
+<div class="formula-card">
+<div class="formula-step">
+<div class="layer-title">第一层 · 法定部分（公司法强制，税后提取）</div>
+<div class="lbl">① 弥补以前年度亏损</div>
+<div class="lbl">② 法定公积金 <span class="val">10%</span> <span class="note">（累计达 25 万后不再强制提取 ）</span></div>
+
+<div class="layer-title">第二层 · 自主分配（剩余 90%，税前列支）</div>
+<div class="lbl">③ 5 校聘月工资 <span class="val">50%</span> <span class="note">次年 1-12 月 / 12</span></div>
+<div class="lbl">④ 2 外部顾问费 <span class="val">10%</span> <span class="note">次年 1-12 月 / 12 / 2 人平均分</span></div>
+<div class="lbl">⑤ 公司发展基金 <span class="val">30%</span> <span class="note">含 5 年实缴专项资金 10% + 储备金 20%</span></div>
+
+<div class="divider"></div>
+<div class="lbl" style="color:var(--accent)">⑥ 2 外部顾问 <span class="danger">不得分红</span>（法律红线）</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 17 条</span>
+<h3 class="article-title">月工资规则（5 校聘 + 2 外部顾问）</h3>
+<div class="article-body">
+<div class="info-box">
+<b>5 校聘月工资</b> = 上一年度净利润 × <span class="key-num">50%</span> / 12 × 个人工商比例（创始人 A 40% / 其他 4 人各 15%）<br>
+<b>2 外部顾问费</b> = 上一年度净利润 × <span class="key-num">10%</span> / 2 / 12（年总额 10% / 2 人 / 12 月）<br>
+<b>30 万门槛</b>：上一年度净利润 < 30 万 → 次年无月工资/顾问费<br>
+<b>亏损年度</b>：净利润 < 0 → 次年 7 人均无月工资/顾问费<br>
+<b>第 1 年</b>：7 人全部无月工资（投入期，靠项目绩效奖励）<br>
+<b>不设保护期</b>：5 校聘本职工资和五险一金由本职单位承担
+</div>
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 18 条</span>
+<h3 class="article-title">项目绩效奖励池（40% 项目毛利）</h3>
+<div class="article-body">
+
+<div class="formula-block">
+<div class="formula-title">📊 计算公式</div>
+<div class="formula-line"><span class="formula-tag">基础贡献</span> = 任务数 × 难度系数 × 完成时间系数</div>
+<div class="formula-line"><span class="formula-tag">个人最终贡献</span> = 基础贡献 × 角色系数</div>
+<div class="formula-line"><span class="formula-tag">个人实得</span> = 40% 池子 × 个人最终贡献 ÷ 全员最终贡献之和</div>
+</div>
+
+<div class="rule-block">
+<div class="rule-title">🎯 3 维度飞书量化（每个任务在飞书录入）</div>
+<table class="rule-table">
+<tr><th>维度</th><th>取值</th><th>说明</th></tr>
+<tr><td>任务数</td><td class="num">已完成数 × 1<br>未完成数 × 0</td><td>已完成 1 个 = 1；<b>未完成不计入</b>（防止挂任务）</td></tr>
+<tr><td>难度系数</td><td class="num">0.5 / 1 / 2</td><td>简单 0.5 / 中等 1 / 困难 2</td></tr>
+<tr><td>完成时间系数</td><td class="num">0.5-2</td><td>延期 0.5 / 准时 1 / 提前 2</td></tr>
+</table>
+</div>
+
+<div class="rule-block">
+<div class="rule-title">🎖️ 角色系数（10% 加权）</div>
+<table class="rule-table">
+<tr><th>角色</th><th class="num">系数</th><th>说明</th></tr>
+<tr><td>普通参与者</td><td class="num">×1.0</td><td>无加成</td></tr>
+<tr><td>项目总负责人</td><td class="num">×1.1</td><td>+10%</td></tr>
+<tr><td>1 个阶段负责人</td><td class="num">×1.1</td><td>+10%</td></tr>
+<tr><td>项目总 + 1 个阶段</td><td class="num">×1.2</td><td>+20%</td></tr>
+<tr><td>项目总 + 2 个阶段</td><td class="num">×1.3</td><td>+30%</td></tr>
+</table>
+<div class="rule-note">兼任可累加：项目总负责人同时担任 N 个阶段负责人 = 1.0 + 0.1 × (1+N)</div>
+</div>
+
+<div class="rule-block">
+<div class="rule-title">🚫 拒绝挂名（核心机制）</div>
+<div class="rule-text">所有任务统一飞书量化，<b>不区分"协调"和"普通"</b>。基础贡献 0 → 加权 0 → 拿 0 元。</div>
+<div class="rule-example">例：项目总负责人本月未做任何飞书任务 → 基础贡献 0 → 角色系数无效 → 实得 0</div>
+</div>
+
+<div class="rule-block">
+<div class="rule-title">💰 数字案例（项目毛利 10 万 → 池子 4 万）</div>
+<table class="rule-table">
+<tr><th>人员</th><th>任务</th><th class="num">基础贡献</th><th>角色</th><th class="num">系数</th><th class="num">最终贡献</th><th class="num">实得</th></tr>
+<tr><td>创始人 A</td><td>10 个一般任务</td><td class="num">10</td><td>项目总+1 阶段</td><td class="num">×1.2</td><td class="num">12</td><td class="num">1.7 万</td></tr>
+<tr><td>创始人 B</td><td>8 个一般任务</td><td class="num">8</td><td>普通</td><td class="num">×1.0</td><td class="num">8</td><td class="num">1.14 万</td></tr>
+<tr><td>创始人 C</td><td>5 个一般+2 个困难</td><td class="num">8</td><td>1 阶段负责人</td><td class="num">×1.1</td><td class="num">8.8</td><td class="num">1.22 万</td></tr>
+<tr><td>创始人 D</td><td>0 个任务</td><td class="num">0</td><td>项目总（挂名）</td><td class="num">×1.1</td><td class="num">0</td><td class="num">0（拒绝挂名）</td></tr>
+</table>
+<div class="rule-note">全员最终贡献之和 28.8 → 4 万池子按比例分配</div>
+</div>
+
+<div class="rule-block">
+<div class="rule-title">📋 配套规则</div>
+<div class="rule-text"><b>池子下限</b>：单项目毛利 &lt; 2 万 → 池子 = 0</div>
+<div class="rule-text"><b>适用范围</b>：仅商业项目（孵化项目不适用）</div>
+<div class="rule-text"><b>称谓区分</b>：5 校聘/新员工=项目绩效（工资），2 外部顾问=项目顾问费（劳务报酬）</div>
+<div class="rule-text"><b>发放流程</b>：回款后 3 个工作日 → 创始人审核 → 公示 2 天 → 随当月工资发放</div>
+<div class="rule-text"><b>争议处理</b>：创始人最终裁决</div>
+</div>
+
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 19 条</span>
+<h3 class="article-title">5 年实缴机制</h3>
+<div class="article-body">
+<div class="table-wrap"><table class="data-table">
+<thead><tr><th>年份</th><th class="num">营收</th><th class="num">利润</th><th class="num">提取 10%</th><th class="num">累计实缴</th><th>完成度</th></tr></thead>
+<tbody>
+<tr><td>第 1 年</td><td class="num">200 万</td><td class="num">50 万</td><td class="num">5 万</td><td class="num">10 万</td><td>20%</td></tr>
+<tr><td>第 2 年</td><td class="num">280 万</td><td class="num">70 万</td><td class="num">7 万</td><td class="num">17 万</td><td>34%</td></tr>
+<tr><td>第 3 年</td><td class="num">360 万</td><td class="num">90 万</td><td class="num">9 万</td><td class="num">26 万</td><td>52%</td></tr>
+<tr><td>第 4 年</td><td class="num">440 万</td><td class="num">110 万</td><td class="num">11 万</td><td class="num">37 万</td><td>74%</td></tr>
+<tr class="total"><td>第 5 年</td><td class="num">520 万</td><td class="num">130 万</td><td class="num">13 万</td><td class="num">50 万</td><td>100% ✓</td></tr>
+<tr class="total"><td>5 年合计</td><td class="num">1800 万</td><td class="num">450 万</td><td class="num">45 万</td><td class="num">50 万</td><td>100%</td></tr>
+</tbody>
+</table></div>
+<b>3 路径</b>：主路径（每年 6 月自动执行）| 应急路径（5 校聘 2/3 同意）| 兜底路径（第 5 年底财务审计自动启用）
+</div>
+</div>
+</div>
+</div>
+
+<!-- ====== 第 5 章：创始人保护 + 战略 ====== -->
+<div class="chapter">
+<div class="chapter-header" onclick="toggleChapter(this)">
+<span class="ch-num">05</span>
+<span class="ch-name">创始人保护 + 5 年战略</span>
+<span class="ch-count">3 条</span>
+<span class="arrow">▾</span>
+</div>
+<div class="chapter-content">
+<div class="article">
+<span class="article-num-tag">第 20 条</span>
+<h3 class="article-title">关键岗位提名权 + 10 项一票否决</h3>
+<div class="article-body">
+<b>关键岗位提名权</b>：创始人 A对 4 类关键岗位有唯一提名权（董事长 / CEO / CFO / 其他核心高管）<br>
+<b>10 项一票否决</b>：章程修改 / 增减资本 / 合并分立解散 / 变更公司形式 / 引入新股东 / 大额投资借款（>10 万）/ 5 校聘股权对外转让 / 关键岗位任免 / 利润分配 / 公司战略重大调整<br>
+<b>实际效果</b>：4 校聘 60% 票 < 66.7%（特别决议门槛），无法绕过创始人 A<br>
+<b>变更机制</b>：创始人 A离任董事长时，本章"提名权 + 否决权"自动失效
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 21 条</span>
+<h3 class="article-title">5 年战略目标（方案 A + 净利率 25%）</h3>
+<div class="article-body">
+<div class="table-wrap"><table class="data-table">
+<thead><tr><th>阶段</th><th>时间</th><th>团队规模</th><th class="num">年营收</th><th class="num">累计利润</th></tr></thead>
+<tbody>
+<tr><td>第 1 阶段</td><td>第 1-2 年</td><td>7 人核心</td><td class="num">200-280 万</td><td class="num">120 万</td></tr>
+<tr><td>第 2 阶段</td><td>第 3-4 年</td><td>7-9 人 (+1-2)</td><td class="num">360-440 万</td><td class="num">200 万</td></tr>
+<tr class="total"><td>第 3 阶段</td><td>第 5 年</td><td>7-9 人</td><td class="num">520 万</td><td class="num">130 万</td></tr>
+<tr class="total"><td>5 年合计</td><td>—</td><td>—</td><td class="num">1800 万</td><td class="num">450 万</td></tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 22 条</span>
+<h3 class="article-title">股权激励 / 增资优先认购 / 股权转让限制</h3>
+<div class="article-body">
+<b>增资优先认购</b>：5 校聘按原 100% 比例优先认购 | 增资价不得低于上一轮估值 | 需创始人 A同意<br>
+<b>股权转让限制</b>：5 校聘之间可相互转让 | 对外转让需 4 校聘全部同意 + 创始人 A同意 | 导致创始人 A持股 < 40% 的转让无效
+</div>
+</div>
+</div>
+</div>
+
+<!-- ====== 第 6 章：风险与合规 ====== -->
+<div class="chapter">
+<div class="chapter-header" onclick="toggleChapter(this)">
+<span class="ch-num">06</span>
+<span class="ch-name">风险与合规</span>
+<span class="ch-count">4 条 + 2 附</span>
+<span class="arrow">▾</span>
+</div>
+<div class="chapter-content">
+<div class="article">
+<span class="article-num-tag">第 23 条</span>
+<h3 class="article-title">商业秘密 + 竞业禁止</h3>
+<div class="article-body">
+<b>商业秘密</b>：任职期间 + 离职后 <span class="key-num">2 年</span> | 范围：技术/经营/客户名单/定价策略<br>
+<b>竞业禁止</b>：任职期间 + 离职后 <span class="key-num">6 个月</span>（带补偿）<br>
+<b>补偿金</b>：离职前 12 个月平均工资的 30% | 不支付则竞业禁止义务解除
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 24 条</span>
+<h3 class="article-title">印章管理办法</h3>
+<div class="article-body">
+<div class="table-wrap"><table class="data-table">
+<thead><tr><th>印章</th><th>保管人</th><th>使用审批</th></tr></thead>
+<tbody>
+<tr><td>公章</td><td>法定代表人 创始人 A</td><td>≥ 1 万：股东会决议 / < 1 万：法定代表人</td></tr>
+<tr><td>财务章</td><td>财务负责人 创始人 B</td><td>财务负责人审批</td></tr>
+<tr><td>合同章</td><td>CEO 创始人 B</td><td>≥ 5 万：股东会决议 / < 5 万：CEO</td></tr>
+<tr><td>法人章</td><td>法定代表人</td><td>本人使用</td></tr>
+<tr><td>发票章</td><td>财务负责人</td><td>财务负责人审批</td></tr>
+</tbody>
+</table></div>
+<b>用印登记</b>：电子（飞书）+ 纸质（公司保险柜）双轨 | 登记本保存 10 年
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 25 条</span>
+<h3 class="article-title">关联交易管理办法</h3>
+<div class="article-body">
+<b>4 级决策</b>：< 1 万业务部门 / 1-5 万 CEO / 5-10 万股东会 / > 10 万独立评估+工商备案<br>
+<b>披露</b>：每季度末 10 日内披露 + 年度报告 | 飞书存档<br>
+<b>定价</b>：市场价 / 成本加成 / 协议价（合同中明确）<br>
+<b>回避</b>：关联股东/董事/监事<b>不得参与表决</b>
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 26 条</span>
+<h3 class="article-title">内控 + 审计（5 项原则 + 4 项持续优化）</h3>
+<div class="article-body">
+<b>5 项核心原则</b>：<br>
+<b>1. 三权分立</b>：股东会（决策）+ 执行董事+经理（执行）+ 监事（监督）<br>
+<b>2. 钱账分离</b>：出纳（创始人 E）+ <b>兼职会计</b>分离，AB 角互审<br>
+<b>3. 钱物分离</b>：采购（创始人 C）+ 验收（创始人 E）分离，避免舞弊<br>
+<b>4. 银行账户管理</b>：基本户 + 一般户 2 个，U盾分别由 2 人保管<br>
+<b>5. 现金日记账</b>：日清月结，超 5000 元当日存银行<br>
+<b>2 项核心原则</b>：<br>
+<b>6. 关键岗位轮岗</b>：财务/销售/部署 每 2 年轮岗 1 次（5 人兼职尽量做到）<br>
+<b>7. 季度凭证抽查</b>：监事创始人 E每季度末抽查 5% 凭证 | 重大异常 3 个工作日内报告<br>
+<b>4 项持续优化</b>：<br>
+<b>利益冲突申报</b>：7 人每年 1 月签署《利益冲突申报书》| 虚假申报→股东会决议<br>
+<b>反舞弊举报</b>：匿名举报邮箱（公司飞书邮箱）| 监事接收 | 保护举报人<br>
+<b>离任审计</b>：财务负责人/CEO/项目总负责人离任→启动离任审计 | 审计费用由公司承担
+</div>
+</div>
+</div>
+</div>
+
+<!-- ====== 第 7 章：附则 ====== -->
+<div class="chapter">
+<div class="chapter-header" onclick="toggleChapter(this)">
+<span class="ch-num">07</span>
+<span class="ch-name">附则</span>
+<span class="ch-count">5 条</span>
+<span class="arrow">▾</span>
+</div>
+<div class="chapter-content">
+<div class="article">
+<span class="article-num-tag">第 27 条</span>
+<h3 class="article-title">章程生效 + 份数 + 解释</h3>
+<div class="article-body">
+<b>生效</b>：本章程自公司成立之日起生效<br>
+<b>份数</b>：一式 5 份（5 校聘各 1 份 + 公司存档 1 份）<br>
+<b>解释</b>：本章程由公司董事会负责解释
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 28 条</span>
+<h3 class="article-title">章程修改 + 解散与清算</h3>
+<div class="article-body">
+<b>章程修改</b>：股东会特别决议（2/3）| 30 日内办理工商变更登记<br>
+<b>解散事由</b>：营业期限届满 / 股东会决议 / 合并分立 / 吊销 / 法院判决<br>
+<b>清算组</b>：解散事由出现 15 日内成立 | 股东会确定人员 | 逾期可由债权人申请法院指定
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 29 条</span>
+<h3 class="article-title">公告通知 + 争议解决</h3>
+<div class="article-body">
+<b>通知方式</b>：专人送达 / 邮件 / 微信 / 钉钉 / 电子邮件<br>
+<b>送达日期</b>：专人=签收日 | 邮件=签收日（无签收=寄出后 3 日）| 微信/钉钉=发送日（已读/确认）<br>
+<b>重大事项</b>（章程修改/增减资本/合并分立）须同时采用 2 种以上方式<br>
+<b>争议解决</b>：友好协商 → 公司住所地（包头市）人民法院 | 涉外可约定仲裁
+</div>
+</div>
+
+<div class="article">
+<span class="article-num-tag">第 30 条</span>
+<h3 class="article-title">法律适用</h3>
+<div class="article-body">
+<b>未尽事宜</b>：按《公司法》及有关法律、行政法规执行<br>
+<b>法律冲突</b>：章程与新颁布法律抵触时，以新法律为准<br>
+<b>修改生效</b>：股东会 2/3 通过 + 工商变更登记
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- ====== 签字栏 ====== -->
+<div class="section" id="sign">
+  <div class="section-title">
+    <span class="icon">✍</span>
+    <h2>签字栏</h2>
+    <span class="sub">5 校聘签署</span>
+  </div>
+  <div class="section-body">
+    <div class="signature-card">
+      <h2>5 校聘股东签字</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>姓名</th><th>股权</th><th>签字</th><th>日期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>创始人 A</td><td>40%</td><td>_______________</td><td>__________</td></tr>
+          <tr><td>创始人 B</td><td>15%</td><td>_______________</td><td>__________</td></tr>
+          <tr><td>创始人 C</td><td>15%</td><td>_______________</td><td>__________</td></tr>
+          <tr><td>创始人 D</td><td>15%</td><td>_______________</td><td>__________</td></tr>
+          <tr><td>创始人 E</td><td>15%</td><td>_______________</td><td>__________</td></tr>
+          <tr class="total"><td><b>合计</b></td><td><b>100%</b></td><td colspan="2">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="signature-card">
+      <h2>2 外部顾问签字</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>姓名</th><th>签字</th><th>日期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>顾问 F</td><td>_______________</td><td>__________</td></tr>
+          <tr><td>顾问 G</td><td>_______________</td><td>__________</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="signature-card">
+      <h2>公司盖章</h2>
+      <div style="padding:20px 0; text-align:center;">
+        <div style="display:inline-block; padding:30px 50px; border:2px dashed var(--primary); border-radius:var(--r-md); background:var(--primary-soft);">
+          <div style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--primary-3);">包头市信创教育科技有限公司</div>
+          <div style="font-size:13px; color:var(--ink-3); margin-top:8px;">（盖章）</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:16px; font-size:13px; color:var(--ink-3);">
+        法定代表人（创始人 A）签字：_______________　　日期：__________
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- 浮动按钮 -->
+<button class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
+
+<script>
+// 团队分工 Tab 切换
+function showPerson(id){
+  document.querySelectorAll('.person-content').forEach(function(el){
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.person-tab').forEach(function(el){
+    el.classList.remove('active');
+  });
+  var target = document.getElementById(id);
+  if(target) target.classList.add('active');
+  if(event && event.currentTarget) event.currentTarget.classList.add('active');
+}
+
+// 章程章节折叠
+function toggleChapter(header){
+  var content = header.nextElementSibling;
+  if(!content) return;
+  var isOpen = content.classList.contains('open');
+  if(isOpen){
+    content.classList.remove('open');
+    header.classList.remove('open');
+    content.style.maxHeight = null;
+  } else {
+    content.classList.add('open');
+    header.classList.add('open');
+    content.style.maxHeight = content.scrollHeight + 2000 + 'px';
+  }
+}
+
+// 初始化：第 1 个章程章节默认展开
+document.addEventListener('DOMContentLoaded', function(){
+  // 自动展开第一个章程
+  var firstChapter = document.querySelector('.chapter');
+  if(firstChapter){
+    var header = firstChapter.querySelector('.chapter-header');
+    var content = firstChapter.querySelector('.chapter-content');
+    if(header && content){
+      header.classList.add('open');
+      content.classList.add('open');
+      content.style.maxHeight = content.scrollHeight + 2000 + 'px';
+    }
+  }
+  // 显示滚动按钮
+  var btnTop = document.querySelector('.btn-top');
+  if(btnTop){
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 400) btnTop.style.display = 'flex';
+      else btnTop.style.display = 'none';
+    });
+  }
+});
+</script>
+
+</body>
+</html>
