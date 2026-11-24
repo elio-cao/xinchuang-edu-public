@@ -94,6 +94,31 @@ b,strong{font-weight:700}
 .notice[open] summary::after{transform:rotate(180deg)}
 .notice .body{padding:0 17px 15px;font-size:14px;color:#7c2d12;line-height:1.8}
 
+
+/* ── 百分比三层分配（页面主角）── */
+.pct{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px;
+  box-shadow:var(--sh)}
+.lvl{margin-bottom:22px}
+.lvl:last-child{margin-bottom:0}
+.lvl .lbl{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.lvl .lbl b{font-size:15px;color:var(--slate)}
+.lvl .lbl span{font-size:12.5px;color:var(--ink3)}
+.sbar{display:flex;height:44px;border-radius:10px;overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(15,23,42,.05)}
+.sg{display:grid;place-items:center;color:#fff;font:800 13px/1 var(--mono);
+  letter-spacing:-.02em;min-width:0;overflow:hidden;padding:0 2px}
+.sg.a{background:var(--pri)} .sg.b{background:var(--teal)} .sg.c{background:var(--emer)}
+.sg.d{background:#64748b} .sg.e{background:var(--amber)} .sg.f{background:#94a3b8}
+.sg.g{background:var(--slate)}
+.legend{list-style:none;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px 18px}
+.legend li{display:block;font-size:13.5px;color:var(--ink2);line-height:1.9}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;
+  transform:translateY(1px)}
+.legend em{font-style:normal;font-family:var(--mono);font-weight:700;color:var(--slate)}
+.pnote{margin-top:16px;padding-top:15px;border-top:1px dashed var(--line);
+  font-size:14px;color:var(--ink2);line-height:1.8}
+.pnote b{color:var(--slate)}
+
 /* ── 卡片 ── */
 .card{background:var(--card);border:1px solid var(--line);border-radius:15px;
   padding:22px;box-shadow:var(--sh)}
@@ -301,28 +326,57 @@ footer b{color:var(--ink2)}
     <p class="lead">下面三块是结论。想看具体条款、算例和依据，往下翻折叠块。</p>
   </div>
 
-  <!-- ① 钱怎么分 -->
-  <h3>一、钱怎么分：一个 50 万项目走完是这样</h3>
-  <div class="trail">
-    <div class="row">
-      <div class="node"><div class="k">项目收入</div><div class="v">50 万</div><div class="d">减项目成本 20 万</div></div>
-      <span class="ar">→</span>
-      <div class="node tl sep"><div class="k">项目毛利</div><div class="v">30 万</div><div class="d">提成前</div></div>
+  <!-- ① 钱怎么分（三层百分比） -->
+  <h3>一、钱怎么分：三层百分比</h3>
+  <div class="pct">
+    <div class="lvl">
+      <div class="lbl"><b>第 1 层 · 项目毛利</b><span>一个 50 万项目：成本 20 万后，毛利 30 万 ＝ 100%</span></div>
+      <div class="sbar">
+        <span class="sg a" style="width:40%"><b>40%</b></span>
+        <span class="sg g" style="width:60%"><b>60%</b></span>
+      </div>
+      <ul class="legend">
+        <li><i style="background:var(--pri)"></i>项目绩效奖励池 <em>12 万</em> · 税前列支 · 按贡献值分给 7 个人</li>
+        <li><i style="background:var(--slate)"></i>进公司利润池 <em>18 万</em> · 公司自己的钱</li>
+      </ul>
     </div>
-    <div class="row" style="margin-top:9px">
-      <div class="node hi"><div class="k">项目绩效奖励池</div><div class="v">12 万</div><div class="d">毛利 × 40% · 税前列支</div></div>
-      <span class="ar">→</span>
-      <div class="node"><div class="k">专利授权使用费</div><div class="v">9 万</div><div class="d">毛利 × 30%</div></div>
-      <span class="ar">→</span>
-      <div class="node tl"><div class="k">进公司利润池</div><div class="v">9 万</div><div class="d">30 − 12 − 9</div></div>
+
+    <div class="lvl">
+      <div class="lbl"><b>第 2 层 · 公司利润池</b><span>18 万 ＝ 100%（这是公司的钱，股东分的是剩下那部分）</span></div>
+      <div class="sbar">
+        <span class="sg d" style="width:10%"><b>10%</b></span>
+        <span class="sg e" style="width:30%"><b>30%</b></span>
+        <span class="sg c" style="width:60%"><b>60%</b></span>
+      </div>
+      <ul class="legend">
+        <li><i style="background:#64748b"></i>法定公积金 <em>1.8 万</em> · 累计到 25 万可停提</li>
+        <li><i style="background:var(--amber)"></i>公司发展基金 <em>5.4 万</em> · 专项缴资 1.8 + 储备 3.6</li>
+        <li><i style="background:var(--emer)"></i>可分给股东 <em>10.8 万</em> · 按持股比例分</li>
+      </ul>
     </div>
-    <div class="row" style="margin-top:9px">
-      <div class="node sep"><div class="k">公积金 + 发展基金</div><div class="v">3.6 万</div><div class="d">先提，公司先留</div></div>
-      <span class="ar">→</span>
-      <div class="node go"><div class="k">可分给股东</div><div class="v">5.4 万</div><div class="d">按实缴出资比例</div></div>
+
+    <div class="lvl">
+      <div class="lbl"><b>第 3 层 · 可分给股东的 60%</b><span>10.8 万 ＝ 100%</span></div>
+      <div class="sbar">
+        <span class="sg a" style="width:51%"><b>51%</b></span>
+        <span class="sg b" style="width:24.5%"><b>24.5%</b></span>
+        <span class="sg c" style="width:24.5%"><b>24.5%</b></span>
+      </div>
+      <ul class="legend">
+        <li><i style="background:var(--pri)"></i>曹鹏宇 <em>5.508 万</em></li>
+        <li><i style="background:var(--teal)"></i>苏昱之 <em>2.646 万</em></li>
+        <li><i style="background:var(--emer)"></i>陈嘉欣 <em>2.646 万</em></li>
+      </ul>
+    </div>
+
+    <div class="pnote">
+      <b>合起来看：</b>项目毛利 100% 里，<b>人拿 76%（22.8 万）</b>、<b>公司留 24%（7.2 万）</b>。
+      其中「人拿的 76%」＝ 绩效池 40%（按干活多少分）+ 股东分红 36%（按持股多少分）。<br>
+      📌 <b>专利授权使用费不在上面这条链里</b> —— 它<b>不是每个项目都有</b>，只在需要使用第三方知识产权的
+      <b>特殊项目</b>才发生，按细则第 29 条<b>计入项目成本费用</b>（上限不超过项目毛利的 30%）。
+      发生了就从毛利里扣，毛利变小、上面三层按同比例缩小。
     </div>
   </div>
-  <div class="note"><b>一句话：</b>项目里赚的钱，<b>先按 40% 提成给干活的人</b>，再扣 30% 授权费，剩下的进公司账；公司账里再交公积金、留发展基金，<b>最后才分红</b>。月工资和顾问费是<b>另一套</b>（按年算，跟项目结算不冲突）。</div>
 
   <!-- ② 谁是谁 -->
   <h3>二、谁是谁：7 个人，各拿什么</h3>
@@ -332,10 +386,11 @@ footer b{color:var(--ink2)}
       <dl>
         <dt>股权</dt><dd class="big">51%</dd>
         <dt>认缴 / 实缴</dt><dd>25.50 万 / 1.530 万</dd>
-        <dt>股东分红</dt><dd class="big">2.754 万</dd>
+        <dt>股东分红</dt><dd class="big">5.508 万</dd>
         <dt>项目绩效称谓</dt><dd class="small">项目绩效奖励</dd>
         <dt>税务科目</dt><dd class="small">工资薪金</dd>
         <dt>月工资</dt><dd class="small">有 · 净利润 × 50%</dd>
+        <dt>合计占毛利</dt><dd class="big">27.96%</dd>
       </dl>
       <div class="pf">负责板块 · 未来教室 · 智慧选课</div>
     </div>
@@ -344,10 +399,11 @@ footer b{color:var(--ink2)}
       <dl>
         <dt>股权</dt><dd class="big">24.5%</dd>
         <dt>认缴 / 实缴</dt><dd>12.25 万 / 0.735 万</dd>
-        <dt>股东分红</dt><dd class="big">1.323 万</dd>
+        <dt>股东分红</dt><dd class="big">2.646 万</dd>
         <dt>项目绩效称谓</dt><dd class="small">项目绩效奖励</dd>
         <dt>税务科目</dt><dd class="small">工资薪金</dd>
         <dt>月工资</dt><dd class="small">有 · 净利润 × 50%</dd>
+        <dt>合计占毛利</dt><dd class="big">16.82%</dd>
       </dl>
       <div class="pf">负责板块 · 智慧选课 · 比赛与教师培训</div>
     </div>
@@ -356,10 +412,11 @@ footer b{color:var(--ink2)}
       <dl>
         <dt>股权</dt><dd class="big">24.5%</dd>
         <dt>认缴 / 实缴</dt><dd>12.25 万 / 0.735 万</dd>
-        <dt>股东分红</dt><dd class="big">1.323 万</dd>
+        <dt>股东分红</dt><dd class="big">2.646 万</dd>
         <dt>项目绩效称谓</dt><dd class="small">项目绩效奖励</dd>
         <dt>税务科目</dt><dd class="small">工资薪金</dd>
         <dt>月工资</dt><dd class="small">有 · 净利润 × 50%</dd>
+        <dt>合计占毛利</dt><dd class="big">13.18%</dd>
       </dl>
       <div class="pf">负责板块 · 教具销售 · 校园文创</div>
     </div>
@@ -372,6 +429,7 @@ footer b{color:var(--ink2)}
         <dt>税务科目</dt><dd class="small">工资薪金</dd>
         <dt>月工资</dt><dd class="small">无</dd>
         <dt>退出</dt><dd class="small">第八条结算并清零</dd>
+        <dt>合计占毛利</dt><dd class="big">6.40%</dd>
       </dl>
     </div>
     <div class="pcard e">
@@ -383,6 +441,7 @@ footer b{color:var(--ink2)}
         <dt>税务科目</dt><dd class="small">工资薪金</dd>
         <dt>月工资</dt><dd class="small">无</dd>
         <dt>退出</dt><dd class="small">第八条结算并清零</dd>
+        <dt>合计占毛利</dt><dd class="big">5.09%</dd>
       </dl>
     </div>
     <div class="pcard s">
@@ -395,6 +454,7 @@ footer b{color:var(--ink2)}
         <dt>月工资</dt><dd class="small">无</dd>
         <dt>顾问费</dt><dd class="small">有 · 净利润 × 10%</dd>
         <dt>另可取得</dt><dd class="small">稿费 · 讲师资</dd>
+        <dt>合计占毛利</dt><dd class="big">3.64%</dd>
       </dl>
     </div>
     <div class="pcard s">
@@ -407,12 +467,58 @@ footer b{color:var(--ink2)}
         <dt>月工资</dt><dd class="small">无</dd>
         <dt>顾问费</dt><dd class="small">有 · 净利润 × 10%</dd>
         <dt>另可取得</dt><dd class="small">稿费 · 讲师资</dd>
+        <dt>合计占毛利</dt><dd class="big">2.91%</dd>
       </dl>
     </div>
   </div>
   <p class="scrollhint mut" style="text-align:left;margin-top:12px">
     股权合计：认缴 <b class="mono">50.00 万</b> · 首期实缴 <b class="mono">3.000 万</b> · 3 名股东合计 100%（认缴 25.50 万 / 12.25 万 / 12.25 万，实缴 1.530 万 / 0.735 万 / 0.735 万）
   </p>
+  <h3>二之二、一张表看全：每个人从哪来、占多少</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>人员</th><th>项目绩效池里占</th><th>股东分红里占</th><th><b>合计占毛利</b></th><th class="n">合计金额</th></tr></thead>
+      <tbody>
+        <tr><td><b>曹鹏宇</b><br><span class="mut">董事 · 法定代表人</span></td>
+            <td class="n">24.00%<br><span class="mut">2.8800 万</span></td>
+            <td class="n">51%<br><span class="mut">5.508 万</span></td>
+            <td class="n"><b>27.96%</b></td><td class="n"><b>8.3880 万</b></td></tr>
+        <tr><td><b>苏昱之</b><br><span class="mut">经理 · CEO</span></td>
+            <td class="n">20.00%<br><span class="mut">2.4000 万</span></td>
+            <td class="n">24.5%<br><span class="mut">2.646 万</span></td>
+            <td class="n"><b>16.82%</b></td><td class="n"><b>5.0460 万</b></td></tr>
+        <tr><td><b>陈嘉欣</b><br><span class="mut">监事</span></td>
+            <td class="n">10.91%<br><span class="mut">1.3091 万</span></td>
+            <td class="n">24.5%<br><span class="mut">2.646 万</span></td>
+            <td class="n"><b>13.18%</b></td><td class="n"><b>3.9551 万</b></td></tr>
+        <tr><td><b>李振兴</b><br><span class="mut">兼职员工</span></td>
+            <td class="n">16.00%<br><span class="mut">1.9200 万</span></td>
+            <td class="n mut">—</td>
+            <td class="n"><b>6.40%</b></td><td class="n"><b>1.9200 万</b></td></tr>
+        <tr><td><b>王凯立</b><br><span class="mut">兼职员工</span></td>
+            <td class="n">12.73%<br><span class="mut">1.5273 万</span></td>
+            <td class="n mut">—</td>
+            <td class="n"><b>5.09%</b></td><td class="n"><b>1.5273 万</b></td></tr>
+        <tr><td><b>张学宇</b><br><span class="mut">外部顾问</span></td>
+            <td class="n">9.09%<br><span class="mut">1.0909 万</span></td>
+            <td class="n mut">—</td>
+            <td class="n"><b>3.64%</b></td><td class="n"><b>1.0909 万</b></td></tr>
+        <tr><td><b>乔楷俊</b><br><span class="mut">外部顾问</span></td>
+            <td class="n">7.27%<br><span class="mut">0.8727 万</span></td>
+            <td class="n mut">—</td>
+            <td class="n"><b>2.91%</b></td><td class="n"><b>0.8727 万</b></td></tr>
+        <tr class="sum"><td><b>7 人合计</b></td><td class="n">100%<br><span class="mut">12.0000 万</span></td>
+            <td class="n">100%<br><span class="mut">10.8000 万</span></td>
+            <td class="n"><b>76.00%</b></td><td class="n"><b>22.8000 万</b></td></tr>
+        <tr class="sum"><td>公司留存<br><span class="mut">公积金 + 发展基金</span></td><td class="n mut">—</td>
+            <td class="n mut">—</td><td class="n"><b>24.00%</b></td><td class="n"><b>7.2000 万</b></td></tr>
+        <tr class="sum"><td><b>合计（= 项目毛利 30 万）</b></td><td class="n"><b>100%</b></td>
+            <td class="n"><b>100%</b></td><td class="n"><b>100.00%</b></td><td class="n"><b>30.0000 万</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="scrollhint mut">← 左右滑动看完整表格 · 「占毛利」= 合计金额 ÷ 毛利 30 万（未计企业所得税）</p>
+
   <div class="warn"><b>一个容易搞混的地方：</b>「<b>项目绩效</b>」按<b>干活多少</b>分（不分身份）；
     「<b>股东分红</b>」按<b>持股多少</b>分（只有 3 名股东有）；
     「<b>月工资 / 顾问费</b>」是<b>按年</b>算的另一套。三条线互不冲抵。</div>
@@ -497,8 +603,7 @@ footer b{color:var(--ink2)}
           <tr><td>2</td><td>项目成本</td><td class="n neg">−20 万</td><td>—</td></tr>
           <tr><td>3</td><td><b>项目毛利</b></td><td class="n"><b>30 万</b></td><td>收入 − 成本</td></tr>
           <tr><td>4</td><td><b>项目绩效奖励池</b>（税前成本费用）</td><td class="n neg">−12 万</td><td>细则第 16 条：毛利 × 40%</td></tr>
-          <tr><td>5</td><td>30% 专利授权使用费（给单位）</td><td class="n neg">−9 万</td><td>细则第 29 条</td></tr>
-          <tr class="sum"><td>6</td><td><b>进入公司利润池</b></td><td class="n"><b>9 万</b></td><td>30 − 12 − 9</td></tr>
+          <tr class="sum"><td>5</td><td><b>进入公司利润池</b></td><td class="n"><b>18 万</b></td><td>30 − 12 ＝ 毛利的 60%</td></tr>
         </tbody></table></div>
       <div class="warn"><b>提取门槛：</b>项目完成验收 <b>且</b> 合同款项全额回款后方可计提（细则第 16 条）；项目失败、或毛利不足 2 万元，<b>不提取</b>奖励池。</div>
 
@@ -507,12 +612,12 @@ footer b{color:var(--ink2)}
         <thead><tr><th>层级</th><th>项目</th><th class="n">比例</th><th class="n">样例金额</th><th>依据</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>弥补以前年度亏损</td><td class="n">—</td><td class="n">0</td><td>章程第 27 条</td></tr>
-          <tr><td>2</td><td>法定公积金</td><td class="n">税后利润 10%</td><td class="n neg">−0.9 万</td><td>细则第 19 条</td></tr>
+          <tr><td>2</td><td>法定公积金</td><td class="n">税后利润 10%</td><td class="n neg">−1.8 万</td><td>细则第 19 条</td></tr>
           <tr><td>3</td><td>任意公积金</td><td class="n">股东会决议</td><td class="n">0</td><td>章程第 27 条</td></tr>
-          <tr><td>4</td><td><b>公司发展基金</b></td><td class="n">税后利润 30%</td><td class="n neg">−2.7 万</td><td>细则第 19、21 条</td></tr>
-          <tr><td>4a</td><td>├ 实缴专项资金（专项用于缴认缴出资）</td><td class="n">净利润 10%</td><td class="n neg">−0.9 万</td><td>细则第 21、23 条</td></tr>
-          <tr><td>4b</td><td>└ 公司储备金（留存流动资金/风险）</td><td class="n">净利润 20%</td><td class="n neg">−1.8 万</td><td>细则第 21 条</td></tr>
-          <tr class="sum"><td>5</td><td><b>可分配给股东</b></td><td class="n">余额</td><td class="n"><b>5.4 万</b></td><td>按实缴出资比例</td></tr>
+          <tr><td>4</td><td><b>公司发展基金</b></td><td class="n">税后利润 30%</td><td class="n neg">−5.4 万</td><td>细则第 19、21 条</td></tr>
+          <tr><td>4a</td><td>├ 实缴专项资金（专项用于缴认缴出资）</td><td class="n">净利润 10%</td><td class="n neg">−1.8 万</td><td>细则第 21、23 条</td></tr>
+          <tr><td>4b</td><td>└ 公司储备金（留存流动资金/风险）</td><td class="n">净利润 20%</td><td class="n neg">−3.6 万</td><td>细则第 21 条</td></tr>
+          <tr class="sum"><td>5</td><td><b>可分配给股东</b></td><td class="n">余额（60%）</td><td class="n"><b>10.8 万</b></td><td>按实缴出资比例</td></tr>
         </tbody></table></div>
       <div class="note">法定公积金累计达注册资本 50%（<b>25 万</b>）后，可以不再提取（细则第 19 条）。</div>
 
@@ -544,18 +649,18 @@ footer b{color:var(--ink2)}
       <div class="tw"><table>
         <thead><tr><th>人员</th><th>身份</th><th class="n">绩效池</th><th class="n">股东分红</th><th class="n">合计到手</th><th>税务科目</th></tr></thead>
         <tbody>
-          <tr><td>曹鹏宇</td><td>创始人（董事）</td><td class="n">2.8800 万</td><td class="n">2.754 万</td><td class="n pri"><b>5.6340 万</b></td><td>工资薪金 + 分红</td></tr>
-          <tr><td>苏昱之</td><td>创始人（经理）</td><td class="n">2.4000 万</td><td class="n">1.323 万</td><td class="n pri"><b>3.7230 万</b></td><td>工资薪金 + 分红</td></tr>
-          <tr><td>陈嘉欣</td><td>创始人（监事）</td><td class="n">1.3091 万</td><td class="n">1.323 万</td><td class="n pri"><b>2.6321 万</b></td><td>工资薪金 + 分红</td></tr>
+          <tr><td>曹鹏宇</td><td>创始人（董事）</td><td class="n">2.8800 万</td><td class="n">5.508 万</td><td class="n pri"><b>8.3880 万</b></td><td>工资薪金 + 分红</td></tr>
+          <tr><td>苏昱之</td><td>创始人（经理）</td><td class="n">2.4000 万</td><td class="n">2.646 万</td><td class="n pri"><b>5.0460 万</b></td><td>工资薪金 + 分红</td></tr>
+          <tr><td>陈嘉欣</td><td>创始人（监事）</td><td class="n">1.3091 万</td><td class="n">2.646 万</td><td class="n pri"><b>3.9551 万</b></td><td>工资薪金 + 分红</td></tr>
           <tr><td>李振兴</td><td>兼职员工</td><td class="n">1.9200 万</td><td class="n">—</td><td class="n"><b>1.9200 万</b></td><td>工资薪金</td></tr>
           <tr><td>王凯立</td><td>兼职员工</td><td class="n">1.5273 万</td><td class="n">—</td><td class="n"><b>1.5273 万</b></td><td>工资薪金</td></tr>
           <tr><td>张学宇</td><td>外部顾问</td><td class="n">1.0909 万</td><td class="n">—</td><td class="n"><b>1.0909 万</b></td><td>劳务报酬</td></tr>
           <tr><td>乔楷俊</td><td>外部顾问</td><td class="n">0.8727 万</td><td class="n">—</td><td class="n"><b>0.8727 万</b></td><td>劳务报酬</td></tr>
-          <tr class="sum"><td colspan="2">7 人小计</td><td class="n">12.0000 万</td><td class="n">5.4000 万</td><td class="n">17.4000 万</td><td>—</td></tr>
-          <tr class="sum"><td colspan="4">公司留存（公积金 0.9 + 专项 0.9 + 储备 1.8）</td><td class="n">3.6000 万</td><td>—</td></tr>
-          <tr class="sum"><td colspan="4"><b>总计</b></td><td class="n"><b>21.0000 万</b></td><td>✓</td></tr>
+          <tr class="sum"><td colspan="2">7 人小计</td><td class="n">12.0000 万</td><td class="n">10.8000 万</td><td class="n">22.8000 万</td><td>—</td></tr>
+          <tr class="sum"><td colspan="4">公司留存（公积金 1.8 + 专项 1.8 + 储备 3.6）</td><td class="n">7.2000 万</td><td>—</td></tr>
+          <tr class="sum"><td colspan="4"><b>总计</b></td><td class="n"><b>30.0000 万</b></td><td>✓</td></tr>
         </tbody></table></div>
-      <div class="note">对账：12.00 + 9.00 = 21.00 万 = 毛利 30 − 授权费 9 ✓　17.40（人）+ 3.60（公司）= 21.00 ✓</div>
+      <div class="note">对账：12.00 + 18.00 = 30.00 万 = 项目毛利 30 万 ✓　22.80（人）+ 7.20（公司）= 30.00 ✓</div>
 
       <h3>年度机制：月工资与顾问费</h3>
       <div class="grid2">
@@ -820,7 +925,7 @@ footer b{color:var(--ink2)}
           <tr><td>外部顾问费</td><td class="n">T 年净利润 × <b>10%</b></td><td>细则第 15 条</td></tr>
           <tr><td>法定公积金</td><td class="n">税后利润 <b>10%</b>（累计 25 万可停提）</td><td>细则第 19 条</td></tr>
           <tr><td>公司发展基金</td><td class="n">税后利润 <b>30%</b>（专项 10% + 储备 20%）</td><td>细则第 19、21 条</td></tr>
-          <tr><td>知识产权许可使用费</td><td class="n">不超过项目毛利 <b>30%</b>，按第 9 条审批</td><td>细则第 29 条</td></tr>
+          <tr><td>知识产权许可使用费</td><td class="n"><b>按需发生</b>（仅使用第三方知识产权的特殊项目才有），<b>计入项目成本</b>，不超过项目毛利 <b>30%</b>，按第 9 条审批</td><td>细则第 29 条</td></tr>
           <tr><td>董事决策权限</td><td class="n">单笔 ≤ 5 万</td><td>细则第 9 条</td></tr>
           <tr><td>股东会普通决议</td><td class="n">单笔 5–10 万</td><td>细则第 9 条</td></tr>
           <tr><td>股东会特别决议</td><td class="n">单笔 &gt; 10 万，须曹鹏宇赞成（2/3）</td><td>章程第 13 条</td></tr>
