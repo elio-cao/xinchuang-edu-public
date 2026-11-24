@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>灵欣教育 · 内部版 · 人员与分配规则</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#faf8f5; --bg2:#f3efe8; --card:#fff; --ink:#0f172a; --ink2:#334155; --ink3:#64748b;
+  --line:#e8e3d8; --line2:#d6d0c2;
+  --pri:#ff6b1a; --pri2:#ea580c; --pris:#fff1e6;
+  --slate:#1e293b; --teal:#0d9488; --teals:#f0fdfa;
+  --rose:#e11d48; --rosses:#fff1f2; --amber:#d97706; --ambers:#fffbeb;
+  --emer:#059669; --emers:#ecfdf5;
+  --sh:0 2px 4px rgba(15,23,42,.05),0 4px 12px rgba(15,23,42,.06);
+  --shm:0 4px 8px rgba(15,23,42,.06),0 12px 24px rgba(15,23,42,.09);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(165deg,#1e293b 0%,#0f172a 55%,#2a1c10 100%);
+  color:#fff;padding:44px 20px 30px;margin-bottom:-40px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,26,.30),transparent 68%)}
+.hero .inner{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.tag{display:inline-block;background:rgba(255,107,26,.16);border:1px solid rgba(255,107,26,.42);
+  color:#ffb27a;font-size:12px;font-weight:700;letter-spacing:.08em;padding:5px 13px;border-radius:99px}
+.hero h1{font-size:clamp(26px,5vw,40px);font-weight:800;letter-spacing:-.02em;margin:16px 0 8px;
+  background:linear-gradient(100deg,#fff 30%,#ffd9bf);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{color:#cbd5e1;font-size:15px;max-width:720px}
+.hero .met{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.hero .met span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  color:#e2e8f0;font-size:12px;padding:5px 11px;border-radius:7px}
+nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+nav.jump a{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#e2e8f0;
+  text-decoration:none;font-size:13px;padding:7px 14px;border-radius:8px;transition:.18s}
+nav.jump a:hover{background:var(--pri);border-color:var(--pri);color:#fff}
+
+/* ── SECTION ── */
+section{margin-top:52px;scroll-margin-top:20px}
+.shead{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.shead .no{font:700 12px/1 "JetBrains Mono",monospace;color:var(--pri);background:var(--pris);
+  padding:6px 9px;border-radius:6px;letter-spacing:.06em}
+.shead h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;letter-spacing:-.01em;color:var(--slate)}
+.shead .src{font-size:12.5px;color:var(--ink3);margin-left:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--sh)}
+.lead{color:var(--ink2);font-size:14.5px;margin-bottom:18px}
+h3{font-size:16.5px;font-weight:700;color:var(--slate);margin:26px 0 10px;padding-left:11px;
+  border-left:4px solid var(--pri);line-height:1.5}
+h3:first-of-type{margin-top:8px}
+h4{font-size:14.5px;font-weight:700;color:var(--ink2);margin:18px 0 8px}
+
+/* ── 速查条 ── */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 16px;box-shadow:var(--sh)}
+.kpi .k{font-size:11.5px;color:var(--ink3);letter-spacing:.04em;margin-bottom:5px}
+.kpi .v{font:800 21px/1.2 "JetBrains Mono",monospace;color:var(--slate)}
+.kpi .v small{font-size:12px;font-weight:600;color:var(--ink3);margin-left:3px}
+.kpi.hi{background:linear-gradient(160deg,#fff6ef,#fff);border-color:#ffd9bf}
+.kpi.hi .v{color:var(--pri2)}
+
+/* ── 表格 ── */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:var(--sh)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg2);color:var(--slate);font-weight:700;font-size:12.5px;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#fffdf9}
+td.n,th.n{text-align:right;font-family:"JetBrains Mono",monospace;white-space:nowrap}
+tr.sum{background:var(--bg2);font-weight:700}
+tr.sum td{border-top:2px solid var(--line2)}
+.num{font-family:"JetBrains Mono",monospace;font-weight:600}
+.pos{color:var(--emer)} .neg{color:var(--rose)} .pri{color:var(--pri2)} .mut{color:var(--ink3)}
+
+/* ── 标记 ── */
+.pill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.pill.s{background:var(--emers);color:#047857}
+.pill.t{background:var(--teals);color:#0f766e}
+.pill.e{background:var(--ambers);color:#b45309}
+.pill.r{background:var(--rosses);color:#be123c}
+.pill.g{background:var(--pris);color:#c2410c}
+.note{border-left:4px solid var(--teal);background:var(--teals);padding:12px 16px;border-radius:0 10px 10px 0;
+  font-size:13.5px;color:#134e4a;margin:14px 0}
+.warn{border-left:4px solid var(--pri);background:var(--pris);padding:12px 16px;border-radius:0 10px 10px 0;
+  font-size:13.5px;color:#7c2d12;margin:14px 0}
+.rule{border-left:4px solid var(--rose);background:var(--rosses);padding:12px 16px;border-radius:0 10px 10px 0;
+  font-size:13.5px;color:#881337;margin:14px 0}
+code{font-family:"JetBrains Mono",monospace;background:var(--bg2);padding:1px 6px;border-radius:4px;font-size:12.5px;color:var(--pri2)}
+.notice{background:linear-gradient(160deg,#fff6ef,#fff);border:1px solid #ffd9bf;border-left:5px solid var(--pri);
+  border-radius:12px;padding:16px 20px;margin-top:58px;box-shadow:var(--sh);font-size:13.8px;color:#7c2d12}
+.notice b{color:#9a3412}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 17px;border-radius:11px;overflow-x:auto;
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.85;margin:12px 0}
+pre b{color:#fdba74;font-weight:700}
+.flow{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:var(--sh)}
+.flow .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:9px 0}
+.flow .node{background:var(--bg2);border:1px solid var(--line2);border-radius:9px;padding:8px 13px;font-size:13px}
+.flow .node.hi{background:var(--pris);border-color:#ffc79e;font-weight:700;color:#9a3412}
+.flow .node.teal{background:var(--teals);border-color:#99f6e4;color:#0f766e}
+.flow .node.rose{background:var(--rosses);border-color:#fecdd3;color:#be123c}
+.flow .node.emer{background:var(--emers);border-color:#a7f3d0;color:#047857}
+.flow .ar{color:var(--ink3);font-weight:700}
+ul.tight{margin:8px 0 8px 20px}
+ul.tight li{margin:4px 0;font-size:13.8px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.mini{background:var(--bg2);border-radius:10px;padding:13px 15px;border:1px solid var(--line)}
+.mini .t{font-weight:700;font-size:13.5px;margin-bottom:5px;color:var(--slate)}
+.mini .d{font-size:13px;color:var(--ink2)}
+footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line2);color:var(--ink3);font-size:12.5px}
+footer b{color:var(--ink2)}
+@media(max-width:640px){
+  .wrap{padding:0 14px 60px}
+  .card{padding:16px}
+  .hero{padding:32px 16px 26px}
+  .shead .src{margin-left:0;width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <span class="tag">内部版 · 供股东查阅 · 请勿外传</span>
+    <h1>人员 · 利润分配 · 项目分成</h1>
+    <p class="sub">本文件是给公司内部看的<b>现行规则总览</b>：人名、股权、利润分配怎么走、项目绩效怎么分，一页看完。它不是工商备案版章程——备案文本另见《公司章程（工商备案版）》。</p>
+    <div class="met">
+      <span>内蒙古灵欣教育科技有限公司</span>
+      <span>v1.0 · 2026-11-24</span>
+      <span>口径 = 章程备案版 + 内部治理细则</span>
+      <span>读者：全员 7 人</span>
+      <span>状态：草案 · 待股东会签批</span>
+    </div>
+    <nav class="jump">
+      <a href="#kpi">关键数字</a>
+      <a href="#people">人员矩阵</a>
+      <a href="#profit">利润分配</a>
+      <a href="#project">项目分成</a>
+      <a href="#formula">贡献值公式</a>
+      <a href="#pay">发放与税务</a>
+      <a href="#exit">退出与归档</a>
+      <a href="#cheat">速查表</a>
+      <a href="#sign">签署状态</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="notice">
+  <b>📌 使用须知</b>　本文件是公司<b>内部规则总览</b>，含<b>真实姓名</b>与分配数据，供<b>股东与团队成员</b>查阅核对。
+  <b>请勿外传、勿公开转载。</b>公开站（GitHub Pages）同名页面即本文件；<b>对外公示用途请用《公司章程（工商备案版）脱敏版》</b>。
+  本文件<b>不含银行账号与身份证号</b>；与《章程》《内部治理细则》不一致的以《章程》为准。
+</div>
+
+<!-- ═══ §0 关键数字 ═══ -->
+<section id="kpi">
+  <div class="shead"><span class="no">00</span><h2>关键数字速查</h2><span class="src">口径源：章程第 6/7/8 条 · 细则第 14/15/16/17/19/29 条</span></div>
+  <div class="kpis">
+    <div class="kpi"><div class="k">注册资本（认缴制）</div><div class="v">50<small>万</small></div></div>
+    <div class="kpi"><div class="k">首期实缴</div><div class="v">3.000<small>万</small></div></div>
+    <div class="kpi hi"><div class="k">项目绩效池</div><div class="v">×40%<small>毛利</small></div></div>
+    <div class="kpi hi"><div class="k">贡献值角色系数</div><div class="v">1.0+0.1N<small>≤1.3</small></div></div>
+    <div class="kpi"><div class="k">创始人月工资</div><div class="v">×50%<small>净利润</small></div></div>
+    <div class="kpi"><div class="k">外部顾问费</div><div class="v">×10%<small>净利润</small></div></div>
+    <div class="kpi"><div class="k">法定公积金</div><div class="v">10%<small>税后</small></div></div>
+    <div class="kpi"><div class="k">公司发展基金</div><div class="v">30%<small>税后</small></div></div>
+  </div>
+  <div class="note">
+    <b>一句话记住分配链：</b>项目收入 50 万 → 毛利 30 万 → <b>绩效池 12 万</b>（毛利×40%，税前列支）→ 授权费 9 万 → 进公司利润池 9 万 → 公积金 0.9 + 发展基金 2.7 + <b>可分红 5.4 万</b>。
+  </div>
+</section>
+
+<!-- ═══ §1 人员矩阵 ═══ -->
+<section id="people">
+  <div class="shead"><span class="no">01</span><h2>人员矩阵</h2><span class="src">口径源：章程第 7 条 · 细则第 4/13/14/15/17 条 · 分成协议 §2.2/3.2</span></div>
+  <p class="lead">公司共 <b>7 人</b>：<b>3 名股东（创始人）</b>、<b>2 名兼职员工</b>、<b>2 名外部顾问</b>。三类身份的差别体现在<b>持股、分红、月工资、税目</b>四件事上；<b>项目绩效池里不分身份</b>，一律按贡献值占比分配。</p>
+
+  <h3>1.1 三名股东（创始人）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>姓名</th><th>职务</th><th class="n">认缴出资</th><th class="n">比例</th><th class="n">首期实缴</th><th class="n">分红口径</th><th>项目绩效称谓</th><th>个税</th></tr></thead>
+      <tbody>
+        <tr><td><b>曹鹏宇</b></td><td>董事（兼法定代表人）</td><td class="n">25.50 万</td><td class="n">51%</td><td class="n">1.530 万</td><td class="n">2.754 万<span class="mut">（样例）</span></td><td>项目绩效奖励</td><td>工资薪金</td></tr>
+        <tr><td><b>苏昱之</b></td><td>经理（CEO，兼财务负责人）</td><td class="n">12.25 万</td><td class="n">24.5%</td><td class="n">0.735 万</td><td class="n">1.323 万<span class="mut">（样例）</span></td><td>项目绩效奖励</td><td>工资薪金</td></tr>
+        <tr><td><b>陈嘉欣</b></td><td>监事</td><td class="n">12.25 万</td><td class="n">24.5%</td><td class="n">0.735 万</td><td class="n">1.323 万<span class="mut">（样例）</span></td><td>项目绩效奖励</td><td>工资薪金</td></tr>
+        <tr class="sum"><td>合计</td><td>3 人</td><td class="n">50.00 万</td><td class="n">100%</td><td class="n">3.000 万</td><td class="n">5.400 万</td><td colspan="2">分红按<b>实缴</b>出资比例</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">创始人月工资与项目绩效奖励是<b>两套并行体系，互不冲抵</b>（细则第 13 条）。月工资按 T 年净利润 × 50% 在 T+1 年发，与项目结算无关。</div>
+
+  <h3>1.2 两名兼职员工</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>姓名</th><th>身份</th><th>持股</th><th>分红</th><th>月工资</th><th>项目绩效</th><th>税务科目</th></tr></thead>
+      <tbody>
+        <tr><td><b>李振兴</b></td><td>兼职员工</td><td><span class="pill e">无</span></td><td><span class="pill e">不参与</span></td><td><span class="pill e">无</span></td><td>项目绩效奖励</td><td>工资薪金（计入）</td></tr>
+        <tr><td><b>王凯立</b></td><td>兼职员工</td><td><span class="pill e">无</span></td><td><span class="pill e">不参与</span></td><td><span class="pill e">无</span></td><td>项目绩效奖励</td><td>工资薪金（计入）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>身份已定（2026-11-24）：</b>李振兴、王凯立<b>两人仍在团队</b>，维持现行口径 —— 不触发退出结算，也不触发贡献值归档清零。身份为「兼职员工」，社保按用工形式依法办理（细则第 13 条）。</div>
+
+  <h3>1.3 两名外部顾问</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>姓名</th><th>身份</th><th>持股</th><th>分红</th><th>月工资</th><th>项目绩效</th><th>税务科目</th><th>另可取得</th></tr></thead>
+      <tbody>
+        <tr><td><b>张学宇</b></td><td>外部顾问</td><td><span class="pill e">无</span></td><td><span class="pill e">不参与</span></td><td><span class="pill e">无</span></td><td>项目顾问费</td><td>管理费用-劳务报酬</td><td>稿费、讲师资（市场价）</td></tr>
+        <tr><td><b>乔楷俊</b></td><td>外部顾问</td><td><span class="pill e">无</span></td><td><span class="pill e">不参与</span></td><td><span class="pill e">无</span></td><td>项目顾问费</td><td>管理费用-劳务报酬</td><td>稿费、讲师资（市场价）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>1.4 三类身份对照</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>身份</th><th>人员</th><th>持股</th><th>分红</th><th>月工资</th><th>项目绩效称谓</th><th>会计科目</th><th>个税口径</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill g">创始人</span></td><td>曹鹏宇 / 苏昱之 / 陈嘉欣</td><td>✅</td><td>✅ 按实缴</td><td>✅</td><td>项目绩效奖励</td><td>应付职工薪酬-工资</td><td>工资薪金 3–45% 累进</td></tr>
+        <tr><td><span class="pill t">员工</span></td><td>李振兴 / 王凯立</td><td>❌</td><td>❌</td><td>❌</td><td>项目绩效奖励</td><td>应付职工薪酬-工资</td><td>工资薪金 3–45% 累进</td></tr>
+        <tr><td><span class="pill s">外部顾问</span></td><td>张学宇 / 乔楷俊</td><td>❌</td><td>❌</td><td>❌</td><td>项目顾问费</td><td>管理费用-劳务报酬</td><td>劳务报酬 20–40% 预扣</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="rule"><b>称谓差异不是文字游戏，是税目差异。</b>创始人/员工拿「项目绩效奖励」→ 计入工资薪金；外部顾问拿「项目顾问费」→ 计入劳务报酬，需代扣代缴个税。<b>分配环节不分身份，称谓环节必须分</b>（细则第 13、16 条）。</div>
+
+  <h3>1.5 业务板块与责任分工</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>序号</th><th>业务板块</th><th class="n">收入占比</th><th>承接职能</th><th>负责人</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td>教具销售</td><td class="n">30%</td><td>研发、品牌、电商</td><td><b>陈嘉欣</b>（兼）</td></tr>
+        <tr><td>02</td><td>未来教室合作</td><td class="n">35%</td><td>政企、研发</td><td><b>曹鹏宇</b>（兼）</td></tr>
+        <tr><td>03</td><td>智慧选课</td><td class="n">15%</td><td>研发</td><td><b>曹鹏宇</b>（兼）、<b>苏昱之</b>（兼）</td></tr>
+        <tr><td>04</td><td>比赛与教师培训</td><td class="n">10%</td><td>咨询、培训</td><td><b>苏昱之</b>（兼）</td></tr>
+        <tr><td>05</td><td>校园文创</td><td class="n">10%</td><td>综合管理</td><td><b>陈嘉欣</b>（兼）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">板块负责人依<b>细则第 4 条</b>确定；<b>项目阶段负责人</b>（销售/研发/部署）是另一套维度，由项目总负责人在《项目立项书》里指定，<b>两套维度不互相替代</b>（分成协议 §2.2）。</div>
+</section>
+
+<!-- ═══ §2 利润分配 ═══ -->
+<section id="profit">
+  <div class="shead"><span class="no">02</span><h2>利润分配规则</h2><span class="src">口径源：细则第 14/15/16/19/20/21/29 条 · 章程第 27 条</span></div>
+  <p class="lead">分配分<b>两个层次</b>，不得混同：<b>税前成本费用</b>（绩效奖励 / 月工资 / 顾问费 / 授权使用费）与<b>税后利润分配</b>（公积金 → 发展基金 → 分红）。</p>
+
+  <div class="flow">
+    <div class="row"><div class="node hi">项目收入 50 万</div><span class="ar">−</span><div class="node">项目成本 20 万</div><span class="ar">=</span><div class="node teal">项目毛利 30 万</div></div>
+    <div class="row"><div class="node hi">绩效奖励池 −12 万</div><span class="mut">（毛利×40%，税前列支）</span><span class="ar">−</span><div class="node hi">授权使用费 −9 万</div><span class="mut">（毛利×30%，细则第29条）</span><span class="ar">=</span><div class="node emer">进公司利润池 9 万</div></div>
+    <div class="row"><div class="node">法定公积金 −0.9 万</div><span class="mut">税后10%</span><span class="ar">+</span><div class="node">发展基金 −2.7 万</div><span class="mut">税后30%（专项0.9+储备1.8）</span><span class="ar">=</span><div class="node rose">可分红 5.4 万</div></div>
+    <div class="row"><div class="node rose">股东分红 5.4 万</div><span class="mut">曹 2.754 / 苏 1.323 / 陈 1.323</span><span class="ar">｜</span><div class="node">公司留存 3.6 万</div></div>
+    <div class="row" style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--line2)">
+      <div class="node">并行体系（年度机制）</div><div class="node teal">创始人月工资 = T年净利润×50%（≥30万才发）</div><div class="node teal">外部顾问费 = T年净利润×10%</div>
+    </div>
+  </div>
+
+  <h3>2.1 项目利润分解（单项目 50 万样例）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>步骤</th><th>内容</th><th class="n">金额</th><th>依据</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>项目收入</td><td class="n">50 万</td><td>—</td></tr>
+        <tr><td>2</td><td>项目成本</td><td class="n neg">−20 万</td><td>—</td></tr>
+        <tr><td>3</td><td><b>项目毛利</b></td><td class="n"><b>30 万</b></td><td>收入 − 成本</td></tr>
+        <tr><td>4</td><td><b>项目绩效奖励池</b>（税前成本费用）</td><td class="n neg">−12 万</td><td>细则第 16 条：毛利 × 40%</td></tr>
+        <tr><td>5</td><td>30% 专利授权使用费（给单位）</td><td class="n neg">−9 万</td><td>细则第 29 条</td></tr>
+        <tr class="sum"><td>6</td><td><b>进入公司利润池</b></td><td class="n"><b>9 万</b></td><td>30 − 12 − 9</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>提取门槛：</b>项目完成验收 <b>且</b> 合同款项全额回款后方可计提（细则第 16 条）；项目失败、或毛利不足 2 万元，<b>不提取</b>奖励池。</div>
+
+  <h3>2.2 公司利润池分配顺序</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>层级</th><th>项目</th><th class="n">比例</th><th class="n">样例金额</th><th>依据</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>弥补以前年度亏损</td><td class="n">—</td><td class="n">0</td><td>章程第 27 条</td></tr>
+        <tr><td>2</td><td>法定公积金</td><td class="n">税后利润 10%</td><td class="n neg">−0.9 万</td><td>细则第 19 条</td></tr>
+        <tr><td>3</td><td>任意公积金</td><td class="n">股东会决议</td><td class="n">0</td><td>章程第 27 条</td></tr>
+        <tr><td>4</td><td><b>公司发展基金</b></td><td class="n">税后利润 30%</td><td class="n neg">−2.7 万</td><td>细则第 19、21 条</td></tr>
+        <tr><td>4a</td><td>├ 实缴专项资金（专项用于缴认缴出资）</td><td class="n">净利润 10%</td><td class="n neg">−0.9 万</td><td>细则第 21、23 条</td></tr>
+        <tr><td>4b</td><td>└ 公司储备金（留存流动资金/风险）</td><td class="n">净利润 20%</td><td class="n neg">−1.8 万</td><td>细则第 21 条</td></tr>
+        <tr class="sum"><td>5</td><td><b>可分配给股东</b></td><td class="n">余额</td><td class="n"><b>5.4 万</b></td><td>按实缴出资比例</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">法定公积金累计达注册资本 50%（<b>25 万</b>）后，可以不再提取（细则第 19 条）。</div>
+
+  <h3>2.3 绩效池 12 万怎么分（7 人样例）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>人员</th><th>身份</th><th>项目角色</th><th class="n">投入工时</th><th class="n">基础贡献值</th><th class="n">系数</th><th class="n">贡献值</th><th class="n">占比</th><th class="n">绩效池金额</th></tr></thead>
+      <tbody>
+        <tr><td>曹鹏宇</td><td>创始人（董事）</td><td>项目总负责人</td><td class="n">120</td><td class="n">120</td><td class="n">×1.1</td><td class="n">132</td><td class="n">24.00%</td><td class="n"><b>2.8800 万</b></td></tr>
+        <tr><td>苏昱之</td><td>创始人（经理）</td><td>阶段负责人</td><td class="n">100</td><td class="n">100</td><td class="n">×1.1</td><td class="n">110</td><td class="n">20.00%</td><td class="n"><b>2.4000 万</b></td></tr>
+        <tr><td>陈嘉欣</td><td>创始人（监事）</td><td>参与</td><td class="n">60</td><td class="n">60</td><td class="n">×1.0</td><td class="n">60</td><td class="n">10.91%</td><td class="n"><b>1.3091 万</b></td></tr>
+        <tr><td>李振兴</td><td>兼职员工</td><td>阶段负责人</td><td class="n">80</td><td class="n">80</td><td class="n">×1.1</td><td class="n">88</td><td class="n">16.00%</td><td class="n"><b>1.9200 万</b></td></tr>
+        <tr><td>王凯立</td><td>兼职员工</td><td>参与</td><td class="n">70</td><td class="n">70</td><td class="n">×1.0</td><td class="n">70</td><td class="n">12.73%</td><td class="n"><b>1.5273 万</b></td></tr>
+        <tr><td>张学宇</td><td>外部顾问</td><td>参与</td><td class="n">50</td><td class="n">50</td>< class="n">×1.0</td><td class="n">50</td><td class="n">9.09%</td><td class="n"><b>1.0909 万</b></td></tr>
+        <tr><td>乔楷俊</td><td>外部顾问</td><td>参与</td><td class="n">40</td><td class="n">40</td><td class="n">×1.0</td><td class="n">40</td><td class="n">7.27%</td><td class="n"><b>0.8727 万</b></td></tr>
+        <tr class="sum"><td colspan="3">合计</td><td class="n">520</td><td class="n">520</td><td class="n">—</td><td class="n">550</td><td class="n">100.00%</td><td class="n"><b>12.0000 万</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">本表 7 人各任 1 个角色或普通参与，故与旧 ×1.1 口径结果一致；<b>兼任场景系数会更高</b>，见 <a href="#formula">§4.3 兼任算例</a>。</div>
+
+  <h3>2.4 税务定性（绩效池 12 万怎么记账）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>会计科目</th><th>人员</th><th class="n">金额</th></tr></thead>
+      <tbody>
+        <tr><td><b>工资薪金</b>（称「项目绩效奖励」）</td><td>3 名创始人 + 2 名兼职员工</td><td class="n">10.0364 万</td></tr>
+        <tr><td><b>劳务报酬</b>（称「项目顾问费」）</td><td>2 名外部顾问</td><td class="n">1.9636 万</td></tr>
+        <tr class="sum"><td colspan="2">合计</td><td class="n">12.0000 万</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.5 一人总账（单项目 50 万样例）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>人员</th><th>身份</th><th class="n">绩效池</th><th class="n">股东分红</th><th class="n">合计到手</th><th>税务科目</th></tr></thead>
+      <tbody>
+        <tr><td>曹鹏宇</td><td>创始人（董事）</td><td class="n">2.8800 万</td><td class="n">2.754 万</td><td class="n pri"><b>5.6340 万</b></td><td>工资薪金 + 分红</td></tr>
+        <tr><td>苏昱之</td><td>创始人（经理）</td><td class="n">2.4000 万</td><td class="n">1.323 万</td><td class="n pri"><b>3.7230 万</b></td><td>工资薪金 + 分红</td></tr>
+        <tr><td>陈嘉欣</td><td>创始人（监事）</td><td class="n">1.3091 万</td><td class="n">1.323 万</td><td class="n pri"><b>2.6321 万</b></td><td>工资薪金 + 分红</td></tr>
+        <tr><td>李振兴</td><td>兼职员工</td><td class="n">1.9200 万</td><td class="n">—</td><td class="n"><b>1.9200 万</b></td><td>工资薪金</td></tr>
+        <tr><td>王凯立</td><td>兼职员工</td><td class="n">1.5273 万</td><td class="n">—</td><td class="n"><b>1.5273 万</b></td><td>工资薪金</td></tr>
+        <tr><td>张学宇</td><td>外部顾问</td><td class="n">1.0909 万</td><td class="n">—</td><td class="n"><b>1.0909 万</b></td><td>劳务报酬</td></tr>
+        <tr><td>乔楷俊</td><td>外部顾问</td><td class="n">0.8727 万</td><td class="n">—</td><td class="n"><b>0.8727 万</b></td><td>劳务报酬</td></tr>
+        <tr class="sum"><td colspan="2">7 人小计</td><td class="n">12.0000 万</td><td class="n">5.4000 万</td><td class="n">17.4000 万</td><td>—</td></tr>
+        <tr class="sum"><td colspan="4">公司留存（公积金 0.9 + 专项 0.9 + 储备 1.8）</td><td class="n">3.6000 万</td><td>—</td></tr>
+        <tr class="sum"><td colspan="4"><b>总计</b></td><td class="n"><b>21.0000 万</b></td><td>✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">对账：12.00 + 9.00 = 21.00 万 = 毛利 30 − 授权费 9 ✓　17.40（人）+ 3.60（公司）= 21.00 ✓</div>
+
+  <h3>2.6 年度机制：月工资与顾问费</h3>
+  <div class="grid2">
+    <div class="mini">
+      <div class="t">创始人月工资（细则第 14 条）</div>
+      <ul class="tight">
+        <li>基数：T 年经全体股东共同确认的净利润</li>
+        <li>触发：T 年净利润 <b>≥ 30 万</b>才发，未达不发</li>
+        <li>总额：<b>T 年净利润 × 50%</b></li>
+        <li>按 <b>51% / 24.5% / 24.5%</b> 分，分 12 期随工资发</li>
+        <li>不发放：成立首年 / 亏损年度</li>
+      </ul>
+      <div class="t" style="margin-top:10px">样例：T 年净利润 40 万 → 池 <b>20 万</b></div>
+      <div class="t">曹 10.2 万 · 苏 4.9 万 · 陈 4.9 万</div>
+    </div>
+    <div class="mini">
+      <div class="t">外部顾问费（细则第 15 条）</div>
+      <ul class="tight">
+        <li>基数与触发：与月工资相同（≥ 30 万）</li>
+        <li>总额：<b>T 年净利润 × 10%</b></li>
+        <li>由全体外部顾问按约定规则分配，人数不限</li>
+        <li>T+1 年内支付，计入管理费用，按劳务报酬代扣代缴</li>
+        <li>另可按市场价取得稿费、讲师资</li>
+      </ul>
+      <div class="t" style="margin-top:10px">样例：T 年净利润 40 万 → 池 <b>4 万</b></div>
+      <div class="t">张学宇、乔楷俊按约定规则分配</div>
+    </div>
+  </div>
+
+  <h3>2.7 三条铁律</h3>
+  <div class="grid2">
+    <div class="mini" style="border-left:4px solid var(--rose)">
+      <div class="t">🔒 铁律 1 · 税前与税后不得混同</div>
+      <div class="d">绩效奖励、月工资、顾问费<b>一律税前据实列支</b>。从税后利润列支 → 多缴企业所得税，并可能被认定为<b>变相分配利润</b>（细则第 20 条）。</div>
+    </div>
+    <div class="mini" style="border-left:4px solid var(--rose)">
+      <div class="t">🔒 铁律 2 · 发展基金优先于分红</div>
+      <div class="d">顺序：弥补亏损 → 公积金 10% → 任意公积金 → <b>发展基金 30%</b> → 余额才分红（细则第 19 条）。</div>
+    </div>
+    <div class="mini" style="border-left:4px solid var(--rose)">
+      <div class="t">🔒 铁律 3 · 绩效池单一池、不分身份</div>
+      <div class="d">3 名创始人、外部顾问、员工<b>同池</b>，按贡献值占比分配（细则第 16 条）。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ §3 项目分成 ═══ -->
+<section id="project">
+  <div class="shead"><span class="no">03</span><h2>项目分成规则</h2><span class="src">口径源：《项目绩效奖励协议》第一～七条 · 细则第 16/17 条</span></div>
+
+  <h3>3.1 奖金池怎么设</h3>
+  <ul class="tight">
+    <li>项目<b>完成验收且合同款项全额回款</b>后，提取项目毛利的 <b>40%</b> 作为专项奖励池（细则第 16 条）。</li>
+    <li>毛利润 = 合同总收入 − 物料/外包/差旅/第三方服务等<b>项目直接成本</b>；<b>不含</b>公司固定人力与日常运营分摊。</li>
+    <li>40% 奖励池属<b>公司经营成本费用，税前据实列支</b>；<b>不进入税后利润</b>，不参与章程第 27 条的税后分配。</li>
+    <li>仅适用于商业项目；孵化项目转商业后自动适用。</li>
+  </ul>
+  <div class="tw">
+    <table>
+      <thead><tr><th>边界情形</th><th>处理</th></tr></thead>
+      <tbody>
+        <tr><td>跨项目合并</td><td>❌ <b>不合并</b>，每项目独立 40% 池</td></tr>
+        <tr><td>项目失败</td><td>池子为 <b>0</b>（无利可分），已发不追回</td></tr>
+        <tr><td>毛利不足 2 万</td><td><b>不提取</b>奖励池</td></tr>
+        <tr><td>跨年度项目</td><td>按回款实际归属年度计算</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.2 三个阶段与负责人</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>阶段</th><th>阶段交付物</th><th>负责人（角色，非固定人选）</th><th>主要责任</th></tr></thead>
+      <tbody>
+        <tr><td><b>销售阶段</b></td><td>合同签订、客户公关、商务谈判</td><td>项目总负责人或商务对接人</td><td>拿下项目 + 客户关系维护</td></tr>
+        <tr><td><b>研发阶段</b></td><td>产品/方案设计、技术开发、需求文档</td><td>研发对接人</td><td>把客户需求转成可落地方案</td></tr>
+        <tr><td><b>部署阶段</b></td><td>项目实施、客户培训、上线运维</td><td>实施交付对接人</td><td>项目交付 + 客户验收</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2">
+    <div class="mini">
+      <div class="t">项目总负责人（每项目 1 名，由 CEO 苏昱之任命）</div>
+      <ul class="tight">
+        <li>跨 3 阶段协调、资源调度与风险管理</li>
+        <li>指定并考核阶段负责人</li>
+        <li><b>贡献值核定</b> + 回款后核算分配明细</li>
+        <li>系数：计 <b>1 个角色 → 1.1</b>；评定额 0 → 拿 0 元</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <div class="t">阶段负责人（每阶段 1 名，由项目总负责人指定）</div>
+      <ul class="tight">
+        <li>本阶段任务分配、进度把控、质量审核</li>
+        <li>本阶段贡献值核定</li>
+        <li>系数：每担任 1 个阶段负责人计 <b>1 个角色 → 1.1</b></li>
+        <li>「协调工作」同样按任务计入基础贡献</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tw" style="margin-top:12px">
+    <table>
+      <thead><tr><th>时点</th><th>动作</th><th>决定方</th></tr></thead>
+      <tbody>
+        <tr><td>项目立项</td><td>确定项目总负责人</td><td>CEO 任命</td></tr>
+        <tr><td>项目启动会</td><td>确定 3 个阶段负责人</td><td>项目总负责人指定</td></tr>
+        <tr><td>阶段切换</td><td>阶段负责人可调整</td><td>项目总负责人决定（书面说明）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.3 谁能进池子</h3>
+  <div class="warn"><b>同时满足两条</b>方可进入分配：① <b>实际参与</b>该项目（任务记录中有可考量的贡献）；② 项目<b>完成验收且款项全额回款</b>（细则第 16 条）。未参与 → 0 分，不分配。</div>
+  <ul class="tight">
+    <li>「参与者」由项目总负责人指定，未指定的默认不参与。</li>
+    <li>仅<b>挂名</b>未实际参与的，基础贡献值为 0，<b>不参与分配</b>（细则第 17 条）。</li>
+    <li>新人依细则第 18 条以员工或外部顾问身份加入，<b>不取得股权</b>，须签《项目分成协议》《项目参与确认书》。</li>
+  </ul>
+</section>
+
+<!-- ═══ §4 贡献值公式 ═══ -->
+<section id="formula">
+  <div class="shead"><span class="no">04</span><h2>贡献值怎么算</h2><span class="src">口径源：分成协议 §4.1–4.5 · 细则第 17 条</span></div>
+
+  <h3>4.1 计算公式</h3>
+  <pre>个人基础贡献值 = Σ（每任务分值 × 任务难度系数 × 任务完成时间系数）
+
+个人最终贡献 = 基础贡献 × <b>角色系数</b>
+个人实得     = 40% 池子 × 个人最终贡献 ÷ 全员最终贡献</pre>
+  <div class="tw">
+    <table>
+      <thead><tr><th>维度</th><th>含义</th><th>取值</th></tr></thead>
+      <tbody>
+        <tr><td>完成任务数量</td><td>飞书记录中<b>已完成</b>任务数</td><td>整数（<b>未完成不计入</b>）</td></tr>
+        <tr><td>任务难度系数</td><td>每个任务的难度（3 档）</td><td><b>0.5 / 1 / 2</b></td></tr>
+        <tr><td>任务完成时间</td><td>实际用时 / 计划用时</td><td>0.5 ~ 2（1.0 标准）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>操作载体：</b>飞书项目任务量化表。每任务分值、难度系数、时间系数由量化表记录，<b>项目结束后统一评定</b>。</div>
+
+  <h3>4.2 角色系数（标量累加）</h3>
+  <pre>角色系数 = <b>1.0 + 0.1 × 角色数</b>，上限 <b>1.3</b>
+角色数 = 项目总负责人计 1 个 + 阶段负责人每阶段各计 1 个；普通参与者计 0 个
+系数按标量方式<b>一次性</b>适用于本人全部评定额，不再按角色分段各自加权</pre>
+  <div class="tw">
+    <table>
+      <thead><tr><th>情形</th><th class="n">角色数</th><th class="n">系数</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>普通参与者</td><td class="n">0</td><td class="n">1.0</td><td>—</td></tr>
+        <tr><td>项目总负责人</td><td class="n">1</td><td class="n">1.1</td><td>—</td></tr>
+        <tr><td>阶段负责人（1 个阶段）</td><td class="n">1</td><td class="n">1.1</td><td>—</td></tr>
+        <tr><td>项目总 + 1 阶段</td><td class="n">2</td><td class="n pri"><b>1.2</b></td><td>标量累加，不分段</td></tr>
+        <tr><td>项目总 + 2 阶段</td><td class="n">3</td><td class="n pri"><b>1.3</b></td><td>上限</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>纯加权设计：</b>所有任务统一量化（不区分「协调」和「普通」）→ 没有挂名空间；池子规模恒为毛利 × 40%，<b>不因角色而变</b>；一人可以是多个项目的不同角色（每项目独立计算）。</div>
+
+  <h3>4.3 算例 A：30 万毛利项目（池 12 万）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>人员</th><th>身份</th><th>项目角色</th><th class="n">基础贡献</th><th class="n">系数</th><th class="n">最终贡献</th><th class="n">实得</th><th class="n">占比</th></tr></thead>
+      <tbody>
+        <tr><td>曹鹏宇</td><td>创始人</td><td>项目总</td><td class="n">50</td><td class="n">1.1</td><td class="n">55</td><td class="n"><b>2.36 万</b></td><td class="n">19.6%</td></tr>
+        <tr><td>苏昱之</td><td>创始人</td><td>1 阶段</td><td class="n">50</td><td class="n">1.1</td><td class="n">55</td><td class="n"><b>2.36 万</b></td><td class="n">19.6%</td></tr>
+        <tr><td>陈嘉欣</td><td>创始人</td><td>普通</td><td class="n">50</td><td class="n">1.0</td><td class="n">50</td><td class="n"><b>2.14 万</b></td><td class="n">17.9%</td></tr>
+        <tr><td>李振兴</td><td>兼职员工</td><td>普通</td><td class="n">80</td><td class="n">1.0</td><td class="n">80</td><td class="n"><b>3.43 万</b></td><td class="n">28.6%</td></tr>
+        <tr><td>王凯立</td><td>兼职员工</td><td>普通</td><td class="n">40</td><td class="n">1.0</td><td class="n">40</td><td class="n"><b>1.71 万</b></td><td class="n">14.3%</td></tr>
+        <tr class="sum"><td colspan="3">合计</td><td class="n">270</td><td class="n">—</td><td class="n">280</td><td class="n"><b>12.00 万</b></td><td class="n">100.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h4>对比「挂名」场景（曹鹏宇 0 任务）</h4>
+  <div class="tw">
+    <table>
+      <thead><tr><th>人员</th><th class="n">基础贡献</th><th class="n">系数</th><th class="n">最终贡献</th><th class="n">实得</th></tr></thead>
+      <tbody>
+        <tr><td>曹鹏宇</td><td class="n">0</td><td class="n">1.1</td><td class="n">0</td><td class="n neg"><b>0 元</b>（拒绝挂名）</td></tr>
+        <tr><td>苏昱之</td><td class="n">50</td><td class="n">1.1</td><td class="n">55</td><td class="n">2.93 万</td></tr>
+        <tr><td>陈嘉欣</td><td class="n">50</td><td class="n">1.0</td><td class="n">50</td><td class="n">2.67 万</td></tr>
+        <tr><td>李振兴</td><td class="n">80</td><td class="n">1.0</td><td class="n">80</td><td class="n">4.27 万</td></tr>
+        <tr><td>王凯立</td><td class="n">40</td><td class="n">1.0</td><td class="n">40</td><td class="n">2.13 万</td></tr>
+        <tr class="sum"><td>总</td><td class="n">—</td><td class="n">—</td><td class="n">225</td><td class="n"><b>12.00 万</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">不做事就是 0 元；做协调也按任务计入基础贡献 —— <b>池子始终 12 万不变</b>。</div>
+
+  <h3>4.4 算例 B：兼任场景（标量累加 1.2）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>人员</th><th>身份</th><th>角色</th><th class="n">角色数</th><th class="n">系数</th><th class="n">最终贡献</th><th class="n">实得（池 12 万）</th></tr></thead>
+      <tbody>
+        <tr><td>曹鹏宇</td><td>创始人</td><td>项目总 + 1 阶段</td><td class="n">2</td><td class="n pri"><b>1.2</b></td><td class="n"><b>60</b></td><td class="n">12 × 60/285 = <b>2.5263 万</b></td></tr>
+        <tr><td>苏昱之</td><td>创始人</td><td>1 阶段</td><td class="n">1</td><td class="n">1.1</td><td class="n">55</td><td class="n">12 × 55/285 = <b>2.3158 万</b></td></tr>
+        <tr><td>陈嘉欣</td><td>创始人</td><td>普通</td><td class="n">0</td><td class="n">1.0</td><td class="n">50</td><td class="n">12 × 50/285 = <b>2.1053 万</b></td></tr>
+        <tr><td>李振兴</td><td>兼职员工</td><td>普通</td><td class="n">0</td><td class="n">1.0</td><td class="n">80</td><td class="n">12 × 80/285 = <b>3.3684 万</b></td></tr>
+        <tr><td>王凯立</td><td>兼职员工</td><td>普通</td><td class="n">0</td><td class="n">1.0</td><td class="n">40</td><td class="n">12 × 40/285 = <b>1.6842 万</b></td></tr>
+        <tr class="sum"><td colspan="4">合计</td><td class="n">—</td><td class="n">285</td><td class="n"><b>12.00 万</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">与算例 A 的差异：曹鹏宇最终贡献 55 → <b>60</b>，实得 2.36 → <b>2.5263 万</b>；其余 4 人各少拿 0.026–0.062 万（总额 280 → 285）。<b>池子守恒</b>：2.5263 + 2.3158 + 2.1053 + 3.3684 + 1.6842 = 12.0000 万。口径差异只影响兼任者的系数，<b>不改变池子规模，也不改变「挂名拿 0」</b>。</div>
+</section>
+
+<!-- ═══ §5 发放与税务 ═══ -->
+<section id="pay">
+  <div class="shead"><span class="no">05</span><h2>发放流程与税务</h2><span class="src">口径源：分成协议 §5.1–5.3 · 细则第 17/20 条</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>步骤</th><th>时点</th><th>责任方</th></tr></thead>
+      <tbody>
+        <tr><td>1. 任务完成核对</td><td>项目结束后 15 日内</td><td>项目总负责人</td></tr>
+        <tr><td>2. 贡献值评定</td><td>同上</td><td>项目负责人（依据工时、职责、关键贡献）</td></tr>
+        <tr><td>3. 参与人员确认</td><td>评定后</td><td>参与人员</td></tr>
+        <tr><td>4. 董事批准</td><td>确认后</td><td>董事</td></tr>
+        <tr><td>5. 公示</td><td>批准后</td><td>全员（<b>公示 15 日</b>，细则第 17 条）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>5.1 发放方式</h3>
+  <ul class="tight">
+    <li>公司<b>代扣代缴</b>个税，银行转账到参与者个人账户。</li>
+    <li>创始人、员工取得的部分<b>随当月工资发放</b>；外部顾问取得的部分按顾问协议约定支付。</li>
+  </ul>
+  <h3>5.2 个税口径</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>身份</th><th>称谓</th><th>会计科目</th><th>个税口径</th><th>累计/预扣</th></tr></thead>
+      <tbody>
+        <tr><td>3 名创始人 / 员工</td><td><b>项目绩效奖励</b></td><td>应付职工薪酬-工资</td><td>工资薪金所得</td><td>累计预扣法（3–45%）</td></tr>
+        <tr><td>外部顾问</td><td><b>项目顾问费</b></td><td>管理费用-劳务报酬</td><td>劳务报酬所得</td><td>按次预扣（20–40%）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="rule"><b>关键点：</b>项目绩效奖励是<b>基于实际任务贡献的绩效奖励，不是利润分配</b> → <b>不缴 20% 分红个税</b>（20% 只适用于「利息、股息、红利所得」）。税前列支，公司代扣代缴后各自申报。</div>
+  <h3>5.3 争议处理</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>争议类型</th><th>处理</th></tr></thead>
+      <tbody>
+        <tr><td>分值异议</td><td>公示期内向项目负责人书面提出 → 提请<b>董事复核</b> → 复核结论为最终结果</td></tr>
+        <tr><td>重大争议（分配金额 &gt; 1 万）</td><td>提交<b>股东会决议</b>，适用章程第 13 条特别表决（<b>2/3 以上 + 曹鹏宇赞成</b>）</td></tr>
+        <tr><td>量化记录真实性</td><td>虚报分数 → <b>该次分配作废</b>；严重者按商业秘密 + 竞业禁止处理</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ §6 退出与归档 ═══ -->
+<section id="exit">
+  <div class="shead"><span class="no">06</span><h2>退出与贡献值归档</h2><span class="src">口径源：分成协议 §7.1–7.4 · 细则第 17 条 · 5 校聘第八条</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>情形</th><th>规则</th></tr></thead>
+      <tbody>
+        <tr><td><b>创始人股东退出</b></td><td>退出后不再参与任何项目绩效奖励；退出前已启动未完成的项目，按已实际贡献部分结算</td></tr>
+        <tr><td><b>外部顾问退出</b></td><td>终止顾问协议后不再参与项目顾问费；在职期间已启动未完成的项目，按已实际贡献部分结算</td></tr>
+        <tr><td><b>员工退出</b></td><td>离职后不再参与新项目绩效奖励；在职期间已参与项目正常结算已发生部分</td></tr>
+        <tr><td><b>项目失败</b></td><td>40% 奖励池为 0；已发放部分<b>不追回</b>，未发放部分不再发放</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>贡献值归档（2026-11-24 拍板落地）：</b>项目绩效奖励<b>结算完毕后</b>，该成员在本项目的<b>个人层面贡献值记录即清零</b>，仅保留<b>项目级汇总数据</b>；清零后不再参与后续项目的贡献值比例计算（细则第 17 条）。</div>
+  <div class="note"><b>落点四处：</b>细则第 17 条（腾讯文档直改，权威源）＋《项目分成协议》7.3 ＋《项目贡献值考核与利润分配规则》「归档」行 ＋ 5 校聘协议<b>第八条 8.2</b>。</div>
+</section>
+
+<!-- ═══ §7 速查表 ═══ -->
+<section id="cheat">
+  <div class="shead"><span class="no">07</span><h2>关键数字速查表</h2><span class="src">口径源：章程 + 细则 + 分成协议</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>数字</th><th>值</th><th>出处</th></tr></thead>
+      <tbody>
+        <tr><td>注册资本</td><td class="n">50 万（认缴制，5 年内缴足）</td><td>章程第 6 条</td></tr>
+        <tr><td>首期实缴</td><td class="n">3 万</td><td>章程第 7、8 条</td></tr>
+        <tr><td>认缴/实缴：曹鹏宇</td><td class="n">25.50 万 / 1.530 万（51%）</td><td>章程第 7 条</td></tr>
+        <tr><td>认缴/实缴：苏昱之</td><td class="n">12.25 万 / 0.735 万（24.5%）</td><td>章程第 7 条</td></tr>
+        <tr><td>认缴/实缴：陈嘉欣</td><td class="n">12.25 万 / 0.735 万（24.5%）</td><td>章程第 7 条</td></tr>
+        <tr><td>项目绩效池</td><td class="n">项目毛利 × <b>40%</b></td><td>细则第 16 条</td></tr>
+        <tr><td>绩效池提取门槛</td><td class="n">验收 + 全额回款；毛利 &lt; 2 万不提</td><td>细则第 16 条</td></tr>
+        <tr><td>贡献值系数</td><td class="n"><b>1.0 + 0.1 × 角色数</b>，上限 1.3（标量累加）</td><td>细则第 17 条</td></tr>
+        <tr><td>任务难度系数</td><td class="n">0.5 / 1 / 2</td><td>分成协议 §4.1</td></tr>
+        <tr><td>创始人月工资</td><td class="n">T 年净利润 × <b>50%</b>（≥30 万才发）</td><td>细则第 14 条</td></tr>
+        <tr><td>外部顾问费</td><td class="n">T 年净利润 × <b>10%</b></td><td>细则第 15 条</td></tr>
+        <tr><td>法定公积金</td><td class="n">税后利润 <b>10%</b>（累计 25 万可停提）</td><td>细则第 19 条</td></tr>
+        <tr><td>公司发展基金</td><td class="n">税后利润 <b>30%</b>（专项 10% + 储备 20%）</td><td>细则第 19、21 条</td></tr>
+        <tr><td>知识产权许可使用费</td><td class="n">不超过项目毛利 <b>30%</b>，按第 9 条审批</td><td>细则第 29 条</td></tr>
+        <tr><td>董事决策权限</td><td class="n">单笔 ≤ 5 万</td><td>细则第 9 条</td></tr>
+        <tr><td>股东会普通决议</td><td class="n">单笔 5–10 万</td><td>细则第 9 条</td></tr>
+        <tr><td>股东会特别决议</td><td class="n">单笔 &gt; 10 万，须曹鹏宇赞成（2/3）</td><td>章程第 13 条</td></tr>
+        <tr><td>股权锁定期</td><td class="n">成立之日起 <b>3 年</b></td><td>章程第 20 条</td></tr>
+        <tr><td>股权成熟</td><td class="n">每满 1 年成熟 <b>25%</b>，共 4 年</td><td>章程第 21 条</td></tr>
+        <tr><td>竞业禁止补偿</td><td class="n">离职前 12 个月均工资的 <b>30%–50%</b></td><td>细则第 28 条</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ §8 签署状态 ═══ -->
+<section id="sign">
+  <div class="shead"><span class="no">08</span><h2>文件关系与签署状态</h2><span class="src">本文件是汇总视图，不是法律文本</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>文件</th><th>作用</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>公司章程（工商备案版）· 36 条</td><td>对外备案与根本法</td><td><span class="pill s">腾讯文档已同步</span></td></tr>
+        <tr><td>内部治理细则 · 31 条</td><td>日常治理与经营执行</td><td><span class="pill s">腾讯文档已同步</span></td></tr>
+        <tr><td>公司财务分配表 v5.0</td><td>分配口径 + 7 大表样例</td><td><span class="pill e">待签批</span></td></tr>
+        <tr><td>项目绩效奖励协议（分成协议）</td><td>项目贡献值与发放规则</td><td><span class="pill e">待签批</span></td></tr>
+        <tr><td>5 校聘团队内部协议</td><td>股权 + 团队 + 退出结算</td><td><span class="pill e">待签批</span></td></tr>
+        <tr><td>股东会决议（设立及章程备案）</td><td>备案必备件</td><td><span class="pill e">模板待填</span></td></tr>
+        <tr><td><b>本文件（内部版）</b></td><td><b>把上面几份的现行口径汇总成人话</b></td><td><span class="pill g">汇总视图</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>效力顺序：</b>本文件与《章程》《内部治理细则》不一致的，<b>以《章程》为准</b>（细则第 1 条）。规则修改须走股东会决议；涉及利润分配条款的修改适用<b>章程第 13 条特别表决</b>（细则第 2 条）。</div>
+  <div class="note"><b>这份文件的样例数字</b>基于「1 个 50 万项目 + 无历史亏损 + 无任意公积金」假设，实际以每个项目的真实数据与年度决议为准（财务分配表 §七）。</div>
+</section>
+
+<footer>
+  <b>内蒙古灵欣教育科技有限公司</b> · 内部版 v1.0 · 2026-11-24 生成 ·
+  统一社会信用代码 91150207MAKLYM3R8E · 内蒙古自治区包头市九原区赛汗街道办事处沙河西街包头富力城F区4S-717<br>
+  <b>本文件为公司内部资料</b>，供股东与团队成员查阅核对，<b>请勿外传或公开转载</b>；不作为向登记机关提交的备案文件。
+  公开站（GitHub Pages）同名页面即本文件（<b>真名版</b>）；对外公示用途请用<b>《公司章程（工商备案版）脱敏版》</b>。本文件<b>不含银行账号与身份证号</b>。<br>
+  源文件：handbook/公司章程-工商备案版-最终稿.md · handbook/内部治理细则.md · handbook/公司财务分配表-一图看懂.md · handbook/项目分成协议.md · handbook/项目贡献值考核与利润分配规则.md
+</footer>
+
+</div>
+</body>
+</html>
